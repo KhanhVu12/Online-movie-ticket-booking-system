@@ -1,13 +1,13 @@
 import React from 'react';
-import { IoMdNotificationsOutline, IoIosSettings } from 'react-icons/io';
 import { BsTranslate } from "react-icons/bs";
+import { IoMdNotificationsOutline, IoIosSettings} from 'react-icons/io';
 
 export const Navbar = () => {
   return (
     <div className='navBar'>
       <div className="navBarWrapper">
         <div className="navLeft">
-          <span className="logo">tên brand của mình(or logo) :V</span>
+          <span className="logo">logo</span>
         </div>
         <div className="navRight"> 
           <div className="iconContainer">        
