@@ -1,7 +1,6 @@
 import React from 'react';
-import NotifyIcon from '@mui/icons-material/NotificationsNoneTwoTone';
-import LanguageIcon from '@mui/icons-material/TranslateTwoTone';
-import SettingsIcon from '@mui/icons-material/Settings';
+import { IoMdNotificationsOutline, IoIosSettings } from 'react-icons/io';
+import { BsTranslate } from "react-icons/bs";
 
 export const Navbar = () => {
   return (
@@ -11,15 +10,15 @@ export const Navbar = () => {
           <span className="logo">tên brand của mình(or logo) :V</span>
         </div>
         <div className="navRight"> 
-          <div className="iconContainer">         
-            <LanguageIcon/>
+          <div className="iconContainer">        
+            <BsTranslate/>
           </div>
           <div className="iconContainer">
-            <NotifyIcon/>
+            <IoMdNotificationsOutline/>
             <span className="notiCount">3</span>
           </div>
           <div className="iconContainer">
-            <SettingsIcon/>
+            <IoIosSettings/>
           </div>
           <img src="images/avt.png" alt="avatar" className="avatar" />
         </div>
