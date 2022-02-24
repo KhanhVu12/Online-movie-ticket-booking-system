@@ -22,6 +22,12 @@ export const GlobalStyle = createGlobalStyle`
     align-items: center;
 }
 
+.navLeft{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .logo{
     font-size: 30px;
     font-weight: bold;
@@ -39,6 +45,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 5px 10px 0 0;
     cursor: pointer;
     color: white; 
+    font-size: 25px;
 }
 
 .notiCount{
@@ -59,5 +66,45 @@ export const GlobalStyle = createGlobalStyle`
     border-radius: 50%;
     height: 40px;
     width: 40px;
+}
+
+.sidebarContainer {
+    padding-top: 50px;
+    display: flex;
+}
+
+.sidebar{
+    background-color: darkcyan;
+    width: 25%;
+    height: calc(100vh - 50px);
+    position: fixed;
+}
+
+.sidebarWrapper{
+    padding: 20px;
+    color: #D3D3D3;
+}
+
+.sidebarList{
+    list-style: none;
+    padding: 5px;
+}
+
+.sidebarListItem{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.sidebarListItem.active, 
+.sidebarListItem:hover{
+    background-color: #29bfa0;
+}
+
+.sidebarIcon{
+    font-size: 35px;
+    margin-right: 5px;
 }
 `
