@@ -6,6 +6,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
 }
 
+//Navbar
 .navBar {
     z-index: 999px;
     width: 100%;
@@ -68,6 +69,7 @@ export const GlobalStyle = createGlobalStyle`
     width: 40px;
 }
 
+//Sidebar
 .sidebarContainer {
     padding-top: 50px;
     display: flex;
