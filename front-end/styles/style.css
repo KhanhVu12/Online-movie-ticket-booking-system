@@ -1,0 +1,179 @@
+body{
+	font-family:Times New Roman;
+    background-color: whitesmoke;
+	
+	margin-left:auto;
+	margin-right:auto;
+	text-transform:bold;
+}
+
+/* Navbar */
+.navBar{
+    background-image: linear-gradient(#121619, #2F4A60);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Hamburger Button */
+.btn-menu{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    margin: 15px;
+    border: 3px solid #97C83E;
+}
+
+.btn-menuHamburger{
+    width: 25px;
+    height: 5px;
+    background: #97C83E;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px green;
+    transition: all .5s ease-in-out;
+}
+
+.btn-menuHamburger::before,
+.btn-menuHamburger::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 5px;
+    background: #97C83E;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px green;
+    transition: all .5s ease-in-out;
+}
+.btn-menuHamburger::before{
+    transform: translateY(-13px);
+}
+.btn-menuHamburger::after{
+    transform: translateY(13px);
+}
+
+.btn-menu.open .btn-menuHamburger {
+    transform: translateX(-50px);
+    background: transparent;
+    box-shadow: none;
+}
+
+.btn-menu.open .btn-menuHamburger::before{
+    transform: rotate(45deg) translate(35px, -35px);
+}
+
+.btn-menu.open .btn-menuHamburger::after{
+    transform: rotate(-45deg) translate(35px, 35px);
+}
+
+/* Logo */
+.logoWrapper{
+    position: relative;
+}
+
+.logoWrapper img{
+    position: absolute;
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+    margin: -25px 0 0 -50px;
+}
+
+.logo:hover{
+    opacity: 0;
+    transition: 0.3s;
+}
+
+/* authentication */
+.authentication{
+    list-style-type: none;
+    padding: 5px;
+    margin-right: 20px;
+}
+
+.authentication li {
+    float: left;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.authentication li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.authentication li a:hover {
+    background-color: white;
+	color:#97C83E;
+	transition:0.35s;
+	text-transform:bold;
+}
+
+.authentication a {
+    padding: 8px;
+    width: 100%;
+    background-color: #97C83E;
+}
+
+/* sidebar */
+.sidebar {
+    position: fixed;
+    background-image: linear-gradient(#2F4A60, #121619);
+    margin: 80px 0 0 0;
+    width: 300px;
+    height: 100%;
+    transition: all 0.5s ease-in-out;
+}
+
+.sidebar.open {
+    transform: translateX(-300px);
+    box-shadow: none;
+    transition: all 0.5s ease-in-out;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.sidebar li {
+    line-height: 80px;
+    border-bottom: 1px solid #98c83e77;
+    
+}
+
+.sidebar a{
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    padding-left: 40px;
+    font-weight: 400px;
+    display: block;
+    border-left: 3px solid transparent;
+}
+
+.sidebar a:hover {
+    color: #97C83E;
+    background: #121619;
+    border-left-color: #97C83E;
+    box-shadow: 0 5px 10px rgba(0, 128, 0, 0.651);
+}
