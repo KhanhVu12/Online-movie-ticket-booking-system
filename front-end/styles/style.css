@@ -138,11 +138,12 @@ body{
     margin: 80px 0 0 0;
     width: 300px;
     height: 100%;
+    transform: translateX(-300px);
     transition: all 0.5s ease-in-out;
 }
 
 .sidebar.open {
-    transform: translateX(-300px);
+    transform: translateX(0px);
     box-shadow: none;
     transition: all 0.5s ease-in-out;
 }
