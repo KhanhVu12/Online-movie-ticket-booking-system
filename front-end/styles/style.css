@@ -153,9 +153,13 @@ body{
     padding: 0;
     height: 100%;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
 }
 
 .sidebar li {
+    margin-top: -100px;
     line-height: 80px;
     border-bottom: 1px solid #98c83e77;
     
