@@ -1,4 +1,4 @@
-// const leftArrow = document.querySelectorAll(".left-arrow");
+const leftArrow = document.querySelectorAll(".left-arrow");
 const rightArrow = document.querySelectorAll(".right-arrow");
 const movieList = document.querySelectorAll(".movie-list");
 

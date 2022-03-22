@@ -24,11 +24,20 @@
             <img src="/images/Logo/Logo.png" alt="logo" class="logo">
         </div>
         
-        <ul class="authentication">
-            <li><a href="#" class="login">Đăng Nhập</a></li>
-            <li><a href="#" class="regis">Đăng Kí</a></li>
-        </ul>
+        <div class="authentication">
+            <button class="btn-login">Đăng Nhập</button>
+        </div>
     </nav>
+    <div class="login-form">
+        <ul class="login-list">
+            <li><input type="text" class="txt" placeholder="User Name or Email"></li>
+            <li><input type="password" class="txt" placeholder="Password"></li>
+            <p><input type="checkbox">Remember Username</p>
+        </ul>
+        <button class="login">Đăng Nhập</button>
+        <a href="#">Quên Mật Khẩu</a>
+        <button class="register">Đăng Kí</button>
+    </div>
     <nav class="sidebar">
         <ul>
             <li><a href="#">Trang Chủ</a></li>
@@ -242,6 +251,7 @@
         </div>
     </div>
     <script src="scripts/btnMenu.js"></script>
+    <script src="scripts/btnLogin.js"></script>
     <script src="scripts/slider.js"></script>
 </body>
 </html>
