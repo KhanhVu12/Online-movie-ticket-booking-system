@@ -1,5 +1,6 @@
 html, body {
     max-width: 100%;
+    max-height: 100%;
     overflow-x: hidden;
 }
 body{
@@ -300,7 +301,7 @@ body{
 }
 
 .movie-list-container{
-    padding: 20px;
+    padding: 0 20px 50px 0;
 }
 
 .movie-list-wrapper{
@@ -395,4 +396,114 @@ body{
 .arrow:hover{
     color: #97C83E;
     opacity: 1;
+}
+
+
+/* Footer */
+.foo{
+    background-image: linear-gradient(#2F4A60, #121619);
+    margin-top: -22px;
+    padding: 25px 0;
+}
+.foo-container{
+    max-width: 1170px;
+    margin: auto;
+}
+.foo-row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.foo-col{
+    width: 15%;
+    padding: 0 15px;
+    margin-top: -20px;
+}
+.foo-col h4{
+    font-size: 25px;
+    font-weight: bold;
+    color: #97C83E;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    position: relative;
+}
+.foo-col h4::before{
+    content: '';
+    left: 0;
+    bottom: -10px;
+    background-image: linear-gradient(#CEDB2C,#97C83E);
+    height: 2px;
+    width: 65px;
+    box-sizing: border-box;
+    position: absolute;
+}
+.foo-col ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.foo-col ul li{
+    margin-bottom: 15px;
+}
+.foo-col ul li a{
+    font-size: 18px;
+    font-weight: 300;
+    color: #bbbbbb;
+    text-decoration: none;
+    display: block;
+    transition: all .3s ease-in-out;
+}
+.foo-col ul li a:hover{
+    color: #97C83E;
+    padding-left: 10px;
+    transition: all .3s ease-in-out;
+}
+.foo-col .social-links a{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    color: white;
+    background-color: #747474;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    transition: all .3s ease-in-out;
+}
+.foo-col .social-links a:hover{
+    color: #97C83E ;
+    background-color: white;
+    transition: all .3s ease-in-out;
+}
+
+
+
+
+/* Responsive */
+@media (max-width: 767px) {
+    .foo-col{
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}
+@media (max-width: 574px) {
+    .foo-col{
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 940px){
+    .logoWrapper{
+        display: none;
+    }
+    .featured-content{
+        flex-direction: column;
+        background-size: cover;
+        padding: 100px 0 10px 100px;
+    }
+    .featured-title{
+        margin-bottom: 10px;
+    }
+    .featured-desc{
+        display: none;
+    }
 }
