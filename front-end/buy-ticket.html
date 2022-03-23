@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/buy-ticket.css" rel="stylesheet" type="text/css" />
+    <link href="styles/navbar.css" rel="stylesheet" type="text/css" />
+    <link href="styles/footer.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/png" href="images/Logo/Logo-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="images/Logo/Logo-16x16.png" sizes="16x16" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Quicksand&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/19fbdee3eb.js" crossorigin="anonymous"></script>
+    <title>Kinema</title>
+</head>
+<body>
+    <div w3-include-html="index.html"></div>
+    <nav class="navBar">
+        <div class="btn-menu">
+            <div class="btn-menuHamburger"></div>            
+        </div>
+     
+        <div class="logoWrapper">
+            <img src="/images/Logo/Logo1.png" alt="logo" class="logo">
+            <img src="/images/Logo/Logo.png" alt="logo" class="logo">
+        </div>
+        
+        <div class="authentication">
+            <button class="btn-login">Đăng Nhập</button>
+        </div>
+    </nav>
+    <div class="login-form">
+        <ul class="login-list">
+            <li><input type="text" class="txt" placeholder="User Name or Email"></li>
+            <li><input type="password" class="txt" placeholder="Password"></li>
+            <p><input type="checkbox">Remember Username</p>
+        </ul>
+        <button class="login">Đăng Nhập</button>
+        <a href="#">Quên Mật Khẩu</a>
+        <button class="register">Đăng Kí</button>
+    </div>
+    <nav class="sidebar">
+        <ul>
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="#">Lịch Chiếu Phim</a></li>
+            <li><a href="#">Đang Chiếu</a></li>
+            <li><a href="#">Sắp Chiếu</a></li>
+            <li><a href="#">Thông Báo</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+      <div class="homepage-container">
+        <div class="movie-info-container">
+            <div class="movie-info">
+                <div class="movie-info-img">
+                    <img src="/images/poster/the-batman.png" alt="The Batman">
+                </div>
+                <div class="movie-info-content">
+                    <h2 class="movie-info-title">The Batman</h2>
+                    <div class="movie-info-desc">The Batman là một bộ phim điện ảnh đề tài siêu anh hùng của Mỹ, dựa
+                    trên nhân vật cùng tên của loạt truyện tranh DC Comics. Phim do các
+                    hãng DC Films, 6th & Idaho, Dylan Clark Productions sản xuất và được
+                    Warner Bros. phát hành năm 2022, với có sự tham gia của tài tử
+                    Robert Pattinson trong vai chính Bruce Wayne / Người Dơi, cùng với
+                    các diễn viên Zoë Kravitz, Paul Dano, Jeffrey Wright, John Turturro,
+                    Peter Sarsgaard, Andy Serkis và Colin Farrell.</div>
+                    <div class="movie-info-detail">
+
+                            <strong>Phân Loại:&nbsp;&nbsp;&nbsp;</strong> <p style="color:red">P - PHIM PHỔ BIẾN CHO MỌI LỨA TUỔI</p>
+                            <strong>Đạo Diễn:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>  <p>Domee Shi</p> 
+                            <strong>Diễn Viên:&nbsp;&nbsp;&nbsp;&nbsp;</strong> <p>Rosalie Chiang, James Hong</p> 
+                            <strong>Thể Loại:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> <p>Hoạt Hình</p>
+                            <strong>Khởi Chiếu:&nbsp;</strong> <p>2022-03-11</p>
+                            <strong>Thời Lượng:</strong> <p>99 phút</p>
+                            <strong>Ngôn Ngữ:&nbsp;&nbsp;&nbsp;</strong> <p>Phụ Đề Tiếng Việt</p>
+                        
+                    </div>
+                    <button>Xem Trailer</button>
+                </div>
+            </div>
+            <div class="showtime"></div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="foo">
+        <div class="foo-container">
+            <div class="foo-row">
+                <div class="foo-col">
+                    <h4>About Us</h4>
+                    <ul>
+                        <li><a href="#">Tuyển Dụng</a></li>
+                        <li><a href="#">Hỏi Đáp</a></li>
+                        <li><a href="#">Liên Hệ</a></li>
+                    </ul>
+                </div>
+                <div class="foo-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="scripts/btnMenu.js"></script>
+    <script src="scripts/btnLogin.js"></script>
+</body>
+</html>
