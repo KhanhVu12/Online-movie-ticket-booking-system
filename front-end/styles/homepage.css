@@ -1,0 +1,184 @@
+html,
+body {
+  max-width: 100%;
+  max-height: 100%;
+  overflow-x: hidden;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: whitesmoke;
+  overflow-y: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  text-transform: bold;
+}
+
+/* home page */
+.container {
+  margin-top: 78px;
+  background-color: #151515;
+  width: 100%;
+  min-height: calc(200vh - 80px);
+  color: aliceblue;
+  transition: all 0.5s ease-in-out;
+}
+
+.homepage-container {
+    position: absolute;
+  transition: all 0.5s ease-in-out;
+}
+
+.featured-content {
+  height: 120vh;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #151515),
+    url("/images/poster-1920x1195/the-batman.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 100px 0 0 250px;
+}
+
+.featured-title {
+  width: 200px;
+}
+
+.featured-desc {
+  width: 500px;
+  color: lightgray;
+  margin: 30px 0;
+}
+
+.buy-ticket-btn {
+  background-color: #97c83e;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.buy-ticket-btn:hover {
+  background-color: white;
+  color: #97c83e;
+  transition: all 0.5 ease-in-out;
+}
+
+.movie-list-container {
+  padding: 0 20px 50px 0;
+}
+.movie-list-title{
+  margin-left: 50px;
+}
+.movie-list-wrapper {
+  /* padding: 20px 0; */
+  position: relative;
+  margin: 0 0 20px 30px;
+}
+
+.movie-list {
+  display: flex;
+  align-items: center;
+  height: 400px;
+  transform: translateX(0);
+  transition: all 1s ease-in-out;
+}
+
+.movie-list-item {
+  margin-right: 25px;
+  position: relative;
+}
+
+.movie-list-item:hover .movie-image {
+  transform: scale(1.2);
+  transition: all 0.35s ease-in-out;
+  opacity: 0.5;
+  margin: 0 25px;
+}
+
+.movie-list-item:hover .movie-title,
+.movie-list-item:hover .movie-desc,
+.movie-list-item:hover .movie-btn {
+  opacity: 1;
+  transition: all 0.35s ease-in-out;
+}
+
+.movie-image {
+  transition: all 0.35s ease-in-out;
+  width: 270px;
+  height: 400px;
+  border-radius: 15px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.movie-title {
+  background-color: transparent;
+  padding: 0 20px;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 20%;
+  left: 40px;
+  opacity: 0;
+  transition: all 0.35s ease-in-out;
+}
+
+.movie-desc {
+  background-color: transparent;
+  padding: 10px;
+  font-size: 14px;
+  position: absolute;
+  top: 30%;
+  left: 60px;
+  width: 200px;
+  opacity: 0;
+  transition: all 0.35s ease-in-out;
+}
+
+.movie-btn {
+  position: absolute;
+  bottom: 30px;
+  left: 120px;
+  opacity: 0;
+  transition: all 0.35s ease-in-out;
+}
+
+.arrow {
+  font-size: 50px;
+  position: absolute;
+  top: 180px;
+  cursor: pointer;
+  color: lightgray;
+  opacity: 0.5;
+}
+
+.left-arrow {
+  left: 0;
+}
+
+.right-arrow {
+  right: 0;
+}
+
+.arrow:hover {
+  color: #97c83e;
+  opacity: 1;
+}
+
+@media only screen and (max-width: 940px) {
+  .logoWrapper {
+    display: none;
+  }
+  .featured-content {
+    flex-direction: column;
+    background-size: cover;
+    padding: 100px 0 10px 100px;
+  }
+  .featured-title {
+    margin-bottom: 10px;
+  }
+  .featured-desc {
+    display: none;
+  }
+}
