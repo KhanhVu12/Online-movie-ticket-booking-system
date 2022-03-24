@@ -85,7 +85,7 @@ body {
 }
 
 .movie-list-item {
-  margin-right: 25px;
+  margin: 75px 25px 25px 0;
   position: relative;
 }
 
