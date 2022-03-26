@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/buy-ticket.css" rel="stylesheet" type="text/css" />
+    <link href="styles/navbar.css" rel="stylesheet" type="text/css" />
+    <link href="styles/registration.css" rel="stylesheet" type="text/css" />
+    <link href="styles/footer.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/png" href="images/Logo/Logo-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="images/Logo/Logo-16x16.png" sizes="16x16" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Quicksand&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/19fbdee3eb.js" crossorigin="anonymous"></script>
+    <title>Kinema</title>
+</head>
+<body>
+    <div w3-include-html="index.html"></div>
+    <nav class="navBar">
+        <div class="btn-menu">
+            <div class="btn-menuHamburger"></div>            
+        </div>
+     
+        <div class="logoWrapper">
+          <img src="/images/Logo/Logo1.png" alt="logo" class="logo">
+          <img src="/images/Logo/Logo.png" alt="logo" class="logo">
+        </div>
+        
+        <div class="authentication">
+            <button class="btn-login">Đăng Nhập</button>
+        </div>
+    </nav>
+    <div class="login-form">
+        <ul class="login-list">
+            <li><input type="text" class="txt" placeholder="Nhập tên hoặc email"></li>
+            <li><input type="password" class="txt" placeholder="Nhập mật khẩu"></li>
+            <p><input type="checkbox">Ghi nhớ đăng nhập</p>
+        </ul>
+        <button class="login">Đăng Nhập</button>
+        <a href="#">Quên Mật Khẩu</a>
+        <button class="register">Đăng Kí</button>
+    </div>
+    <nav class="sidebar">
+        <ul>
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="#">Lịch Chiếu Phim</a></li>
+            <li><a href="#">Đang Chiếu</a></li>
+            <li><a href="#">Sắp Chiếu</a></li>
+            <li><a href="#">Thông Báo</a></li>
+        </ul>
+    </nav>
+    
+
+
+    <form class="signup-form" action="/register" method="post">
+
+        <!-- form header -->
+        <div class="form-header">
+          <h1>Đăng Kí</h1>
+        </div>
+  
+        <!-- form body -->
+        <div class="form-body">
+  
+          <!-- Firstname and Lastname -->
+          <div class="horizontal-group">
+            <div class="form-group left">
+              <label for="firstname" class="label-title">Tên *</label>
+              <input type="text" id="firstname" class="form-input" placeholder="Nhập tên" required="required" />
+            </div>
+            <div class="form-group right">
+              <label for="lastname" class="label-title">Họ *</label>
+              <input type="text" id="lastname" class="form-input" placeholder="Nhập họ" required="required" />
+            </div>
+          </div>
+  
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email" class="label-title">Email*</label>
+            <input type="email" id="email" class="form-input" placeholder="Nhập email" required="required">
+          </div>
+  
+          <!-- Passwrod and confirm password -->
+          <div class="horizontal-group">
+            <div class="form-group left">
+              <label for="password" class="label-title">Mật khẩu *</label>
+              <input type="password" id="password" class="form-input" placeholder="Nhập mật khẩu" required="required">
+            </div>
+            <div class="form-group right">
+              <label for="confirm-password" class="label-title">Xác nhận mật khẩu *</label>
+              <input type="password" class="form-input" id="confirm-password" placeholder="Nhập lại mật khẩu" required="required">
+            </div>
+          </div>
+  
+          <!-- Gender  -->
+          <div class="horizontal-group">
+            <div class="form-group left">
+              <label class="label-title">Giới tính:</label>
+              <div class="input-group">
+                <label for="male"><input type="radio" name="gender" value="male" id="male"> Nam </label>
+                <label for="female"><input type="radio" name="gender" value="female" id="female"> Nữ</label>
+                <label for="female"><input type="radio" name="gender" value="other" id="other"> Khác</label>
+              </div>
+            </div>
+            
+          </div>
+
+        </div>
+  
+        </div>
+  
+        <!-- form-footer -->
+        <div class="form-footer">
+          <span>* required</span>
+          <button type="submit" class="btn">Đăng kí</button>
+        </div>
+  
+      </form>
+  
+      
+
+
+    <script src="scripts/btnMenu.js"></script>
+    <script src="scripts/btnLogin.js"></script>
+</body>
+</html>

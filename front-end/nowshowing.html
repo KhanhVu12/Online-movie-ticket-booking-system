@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/buy-ticket.css" rel="stylesheet" type="text/css" />
+    <link href="styles/navbar.css" rel="stylesheet" type="text/css" />
+    <link href="styles/nowshowing.css" rel="stylesheet" type="text/css" />
+    <link href="styles/footer.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/png" href="images/Logo/Logo-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="images/Logo/Logo-16x16.png" sizes="16x16" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Quicksand&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/19fbdee3eb.js" crossorigin="anonymous"></script>
+    <title>Kinema</title>
+</head>
+<body>
+    <div w3-include-html="index.html"></div>
+    <nav class="navBar">
+        <div class="btn-menu">
+            <div class="btn-menuHamburger"></div>            
+        </div>
+     
+        <div class="logoWrapper">
+            <img src="/images/Logo/Logo1.png" alt="logo" class="logo">
+            <img src="/images/Logo/Logo.png" alt="logo" class="logo">
+        </div>
+        
+        <div class="authentication">
+            <button class="btn-login">Đăng Nhập</button>
+        </div>
+    </nav>
+    <div class="login-form">
+        <ul class="login-list">
+            <li><input type="text" class="txt" placeholder="Nhập tên hoặc email"></li>
+            <li><input type="password" class="txt" placeholder="Nhập mật khẩu"></li>
+            <p><input type="checkbox">Ghi nhớ đăng nhập</p>
+        </ul>
+        <button class="login">Đăng Nhập</button>
+        <a href="#">Quên Mật Khẩu</a>
+        <button class="register">Đăng Kí</button>
+    </div>
+    <nav class="sidebar">
+        <ul>
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="#">Lịch Chiếu Phim</a></li>
+            <li><a href="#">Đang Chiếu</a></li>
+            <li><a href="#">Sắp Chiếu</a></li>
+            <li><a href="#">Thông Báo</a></li>
+        </ul>
+    </nav> 
+    
+    <form class="nowshowing-form" action="/nowshowing" method="post">
+    <div class="header">
+        <h1>PHIM ĐANG CHIẾU</h1>
+    </div>
+
+   <div class="mov-list">
+    <div class="mov-info">
+        <div class="movie-img">
+            <img
+                  src="images/poster/bong-de.png"
+                  alt="Bóng đè"
+                  
+                />
+        </div>
+        <div class="movie-content">
+            <h2 class="movie-title">BÓNG ĐÈ</h2>
+            <div class="movie-detail">
+                <strong>Thời lượng:</strong>  <p>101</p>
+                <strong>Diễn viên:&nbsp;&nbsp;&nbsp;</strong>   <p>Lâm Thanh Mỹ, Quang Tuấn, Mai Cát Vi, Diệu Nhi</p>
+                <strong>Đạo diễn:&nbsp;&nbsp;&nbsp;&nbsp;</strong>    <p>Lê Văn Kiệt</p>
+                <strong>Xuất xứ:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>     <p>Việt Nam</p>
+                <strong>Khởi chiếu:&nbsp;</strong>  <p>18/03/2022</p>
+                <strong>Thể loại:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>    <p>Kinh dị</p>
+                <strong>Khuyến cáo:</strong>  <p>Phim cấm khán giả dưới 18 tuổi</p>
+            </div>
+            <div class="btn-time">
+            <button >17 : 30</button>
+            <button >18 : 50</button><br>
+            <button >20 : 35</button>
+            <button >22 : 40</button>
+        </div>
+        </div>
+        <!---->
+    </div>
+
+    <div class="mov-info">
+        <div class="movie-img">
+            <img
+                  src="images/poster/ga-dien-bao-thu.png"
+                  alt="Gã Điên Báo Thù"
+                />
+        </div>
+        <div class="movie-content">
+            <h2 class="movie-title">GÃ ĐIÊN BÁO THÙ</h2>
+            <div class="movie-detail">
+                <strong>Thời lượng:</strong>  <p>115</p>
+                <strong>Diễn viên:&nbsp;&nbsp;&nbsp;</strong>   <p>Jason Statham, Holt McCallany, Jeffrey Donovan,<br> Josh Hartnett, 
+                                                                    Scott Eastwood, Eddie Marsan</p>
+                <strong>Đạo diễn:&nbsp;&nbsp;&nbsp;</strong>    <p>Guy Ritchie</p>
+                <strong>Xuất xứ:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>     <p>Mỹ</p>
+                <strong>Khởi chiếu:&nbsp;</strong>  <p>11/03/2022</p>
+                <strong>Thể loại:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>    <p>Hành động</p>
+                <strong>Khuyến cáo:</strong>  <p>Phim cấm khán giả dưới 18 tuổi</p>
+            </div>
+            <div class="btn-time">
+            <button >10 : 00</button>
+            <button >12 : 05</button>
+            <button >15 : 00</button>
+            <button >20 : 00</button>
+            <button >23 : 00</button>
+        </div>
+        </div>
+        <!---->
+    </div>
+
+    <div class="mov-info">
+        <div class="movie-img">
+            <img
+                  src="images/poster/gau-do-bien-hinh.png"
+                  alt="Gấu Đỏ Biến Hình"
+                  
+                />
+        </div>
+        <div class="movie-content">
+            <h2 class="movie-title">TURNING RED : GẤU ĐỎ BIẾN HÌNH</h2>
+            <div class="movie-detail">
+                <strong>Thời lượng:</strong>  <p>90</p>
+                <strong>Diễn viên:&nbsp;&nbsp;&nbsp;</strong>   <p>Rosalie Chiang, Sandra Oh, James Hong</p>
+                <strong>Đạo diễn:&nbsp;&nbsp;&nbsp;&nbsp;</strong>    <p>Domee Shi</p>
+                <strong>Xuất xứ:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>     <p>Mỹ</p>
+                <strong>Khởi chiếu:&nbsp;</strong>  <p>11/03/2022</p>
+                <strong>Thể loại:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>    <p>Hoạt hình</p>
+                <strong>Khuyến cáo:</strong>  <p>Phim phổ biến cho mọi lứa tuổi</p>
+            </div>
+            <div class="btn-time">
+            <button >18 : 40</button>
+            <button >20 : 20</button>
+        </div>
+        </div>
+        <!---->
+    </div>
+
+    <div class="mov-info">
+        <div class="movie-img">
+            <img
+                  src="images/poster/quai-xe-giao-hang.png"
+                  alt="Quái Xế Giao Hàng"
+                  
+                />
+        </div>
+        <div class="movie-content">
+            <h2 class="movie-title">QUÁI XẾ GIAO HÀNG</h2>
+            <div class="movie-detail">
+                <strong>Thời lượng:</strong>  <p>95</p>
+                <strong>Diễn viên:&nbsp;&nbsp;&nbsp;</strong>   <p>Park So Dam, Kim Eui Sung, Yeom Hye Ran,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jeong Hyeon Jun...</p>
+                <strong>Đạo diễn:&nbsp;&nbsp;&nbsp;</strong>    <p>Park Dae Min</p>
+                <strong>Xuất xứ:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>     <p>Hàn Quốc</p>
+                <strong>Khởi chiếu:</strong>  <p>11/03/2022</p>
+                <strong>Thể loại:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>    <p>Hài</p>
+                <strong>Khuyến cáo:</strong>  <p>Phim cấm khán giả dưới 18 tuổi</p>
+
+                
+            </div>
+            <div class="btn-time">
+                <button >19 : 00</button>
+                <button >22 : 55</button>
+            </div>
+            
+        </div>
+        
+        </div>
+        
+    </div>
+</div>
+</form>
+
+
+    <script src="scripts/btnMenu.js"></script>
+    <script src="scripts/btnLogin.js"></script>
+</body>
+</html>
