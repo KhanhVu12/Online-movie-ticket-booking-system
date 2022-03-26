@@ -1,26 +1,28 @@
 html,
 body {
-  max-width: 100%;
-  max-height: 100%;
-  overflow-x: hidden;
+    max-width: 100%;
+    max-height: 100%;
+    overflow-x: hidden;
 }
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: whitesmoke;
-  overflow-y: hidden;
-  margin-left: auto;
-  margin-right: auto;
-  text-transform: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: whitesmoke;
+    overflow-y: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    text-transform: bold;
 }
 
 
 /* Content */
+
 .container {
-  background-color: #151515;
-  width: 100%;
-  min-height: calc(200vh - 80px);
-  color: aliceblue;
-  transition: all 0.5s ease-in-out;
+    background-color: #151515;
+    width: 100%;
+    min-height: calc(200vh - 80px);
+    color: aliceblue;
+    transition: all 0.5s ease-in-out;
 }
 
 .nowshowing-form {
@@ -29,17 +31,19 @@ body {
     background: linear-gradient(#2F4A60, #273C4D);
     padding: 25px 0;
 }
-.header{
+
+.header {
     display: flex;
     text-align: center;
     justify-content: center;
 }
+
 h1 {
-    width: 414px;
     color: #97c83e;
     font-family: Roboto;
     font-weight: Bold;
     font-size: 48px;
+    border-bottom: 2px solid #608a2e;
 }
 
 .mov-list {
@@ -49,6 +53,7 @@ h1 {
 .mov-info {
     display: flex;
     margin: 50px 0;
+    padding: 0 300px;
 }
 
 .movie-title {
@@ -58,18 +63,12 @@ h1 {
 
 .movie-img {
     width: 100%;
-    margin-right: 50px;
+    /* margin-right: 150px; */
 }
 
 .movie-img img {
     width: 282px;
     height: 431px;
-    top: 495px;
-    margin-left: 150px;
-}
-
-.movie-detail {
-    margin: 10px 0;
 }
 
 .movie-content {
@@ -78,7 +77,6 @@ h1 {
 
 .movie-detail strong {
     float: left;
-    margin-right: 20px;
 }
 
 .btn-time button {
