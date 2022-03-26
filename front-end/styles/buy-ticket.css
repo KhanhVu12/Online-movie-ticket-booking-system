@@ -229,7 +229,7 @@ body {
   background-color: #97c83e;
 }
 .seat.vip{
-  background-color: #5a8ab16b;
+  background-color: rgba(153, 205, 50, 0.795);
 }
 .seat.occupied{
   background-color: red;
