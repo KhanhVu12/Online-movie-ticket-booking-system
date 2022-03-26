@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+/*---------------------------------------*/
+
+
+/* Register Form */
+
 
 /*---------------------------------------*/
 /* Register Form */
@@ -20,16 +25,20 @@ body {
 }
 
 .signup-form {
-  font-family: "Roboto", sans-serif;
-  width:600px;
-  margin: 160px auto;
-  background:linear-gradient(to right, #ffffff 0%, #fafafa 50%, #ffffff 99%);
-  border-radius: 10px;
-
+    font-family: "Roboto", sans-serif;
+    width: 600px;
+    margin: 160px auto;
+    background: linear-gradient(to right, #ffffff 0%, #fafafa 50%, #ffffff 99%);
+    border-radius: 10px;
 }
 
+
 /*---------------------------------------*/
+
+
 /* Form Header */
+
+
 /*---------------------------------------*/
 .container {
   background-color: #2F4A60;
@@ -56,16 +65,22 @@ body {
   border-bottom:1px solid #cccccc;
 }
 
+
 /*---------------------------------------*/
+
+
 /* Form Body */
+
+
 /*---------------------------------------*/
+
 .form-body {
-  padding:10px 40px;
-  color:#666;
+    padding: 10px 40px;
+    color: #666;
 }
 
-.form-group{
-  margin-bottom:20px;
+.form-group {
+    margin-bottom: 20px;
 }
 
 .form-body .label-title {
@@ -92,43 +107,44 @@ body {
     outline: none;
 }
 
-
-
-.horizontal-group .left{
-  float:left;
-  width:49%;
+.horizontal-group .left {
+    float: left;
+    width: 49%;
 }
 
-.horizontal-group .right{
-  float:right;
-  width:49%;
+.horizontal-group .right {
+    float: right;
+    width: 49%;
 }
 
 input[type="file"] {
-  outline: none;
-  cursor:pointer;
-  font-size: 17px;
+    outline: none;
+    cursor: pointer;
+    font-size: 17px;
 }
 
 #range-label {
-  width:15%;
-  padding:5px;
-  background-color: #97c83e;
-  color:white;
-  border-radius: 5px;
-  font-size: 17px;
-  position: relative;
-  top:-8px;
+    width: 15%;
+    padding: 5px;
+    background-color: #97c83e;
+    color: white;
+    border-radius: 5px;
+    font-size: 17px;
+    position: relative;
+    top: -8px;
 }
 
-
-::-webkit-input-placeholder  {
-  color:#d9d9d9;
+::-webkit-input-placeholder {
+    color: #d9d9d9;
 }
 
 
 /*---------------------------------------*/
+
+
 /* Form Footer */
+
+
 /*---------------------------------------*/
 .signup-form .form-footer  {
   background-color: #EFF0F1;
@@ -141,11 +157,11 @@ input[type="file"] {
 }
 
 .form-footer span {
-  float:left;
-  margin-top: 10px;
-  color:#999;  
-  font-style: italic;
-  font-weight: thin;
+    float: left;
+    margin-top: 10px;
+    color: #999;
+    font-style: italic;
+    font-weight: thin;
 }
 
 .btn {
@@ -170,5 +186,3 @@ input[type="file"] {
     transition: 0.35s;
     text-transform: bold; 
 }
-
-
