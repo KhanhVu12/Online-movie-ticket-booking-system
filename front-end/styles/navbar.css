@@ -127,7 +127,8 @@ body {
 .login-form {
   padding: 25px;
   width: 300px;
-  margin: 78px 0 0 875px;
+  margin-top: 78px;
+  right: 0;
   background-image: linear-gradient(to top, #121619, #2f4a60);
   text-align: center;
   position: fixed;
