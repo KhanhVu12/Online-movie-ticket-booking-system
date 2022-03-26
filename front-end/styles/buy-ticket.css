@@ -49,18 +49,9 @@ body {
 
 .movie-info-title {
   font-size: 35px;
-  margin-bottom: 25px;
-}
-
-.movie-info-title:before {
-  content: "";
-  left: 465px;
-  top: 210px;
-  background-image: linear-gradient(#cedb2c, #97c83e);
-  height: 2px;
-  width: 200px;
-  box-sizing: border-box;
-  position: absolute;
+  margin-right: 200px;
+  border-bottom: 2px solid #608a2e;
+  padding: 15px 0;
 }
 
 .movie-info-desc {
