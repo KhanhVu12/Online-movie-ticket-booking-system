@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="styles/navbar.css" rel="stylesheet" type="text/css" />
+    <link href="styles/movieList.css" rel="stylesheet" type="text/css" />
+    <link href="styles/registration.css" rel="stylesheet" type="text/css" />
+    <link href="styles/adminpage.css" rel="stylesheet" type="text/css" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/Logo/Logo-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/Logo/Logo-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/19fbdee3eb.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Kinema</title>
+  </head>
+
+  <body>
+    <nav class="navBar">
+      <div class="btn-menu">
+        <div class="btn-menuHamburger"></div>
+      </div>
+
+      <div class="logoWrapper">
+        <img src="/images/Logo/Logo1.png" alt="logo" class="logo" />
+        <img src="/images/Logo/Logo.png" alt="logo" class="logo" />
+      </div>
+
+      <div class="authentication">
+        <button class="btn-logout">Đăng Xuất</button>
+      </div>
+    </nav>
+
+    <!--Main Sidebar Menu-->
+
+    <div class="sidebar">
+      <ul class="sidebar-menu" id="nav-accordion">
+          <p class="centered">          
+          <img src="images/Logo/avatar.png" class="img-circle" width="80"> 
+          </p>
+         <h4 class="centered">Sam Sam</h4>
+
+        <li class="mt">
+            <a class="active" href="indexAdmin.html">
+                <i class="fa fa-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+        <li class="sub-menu">
+            <a href="javascript:;">
+                <i class="fa fa-film"></i>
+                <span>Phim</span>
+            </a>
+        </li>
+        
+        <li class="sub-menu">
+            <a href="javascript:;">
+                <i class="fa fa-clock-o"></i>
+                <span>Thời Gian Chiếu</span>
+            </a>
+        </li>
+
+        <li class="sub-menu">
+            <a href="javascript:;">
+                <i class="fa fa-address-book-o"></i>
+                <span>Quản Lí Tài Khoản</span>
+            </a>
+        </li>
+
+        <li class="sub-menu">
+            <a href="javascript:;">
+                <i class="fa fa-ticket"></i>
+                <span>Quản Lí Vé Phim</span>
+            </a>
+        </li>
+      </ul>
+    </div>
+
+        <!--Movie List-->
+        <div class="container">
+            <div class="signup-contain">
+
+                <h3 class="signup"><i class="fa fa-angle-right"></i> THỜI GIAN CHIẾU</h3>
+                <hr  width="80%" size="2px" align="center" color="black" />
+                <div class="details">
+                    <div class="mov-list">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td><b>STT</b></td>
+                                    <td class="name"><b>TÊN PHIM</b></td>
+                                    <td><b>NGÀY BẮT ĐẦU/KẾT THÚC</b></td>
+                                    <td><b>THỜI GIAN BẮT ĐẦU/KẾT THÚC</b></td>
+                                    <td><b>PHÒNG CHIẾU</b></td>
+                                    <td><b>QUẢN LÍ</b></td>
+                                </tr>
+                                
+                            </thead>
+                            
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td class="name">The BatMan</td>
+                                    <td>11-03-2022 / 30-04-2022</td>
+                                    <td>20:00:00 / 21:40:00</td>
+                                    <td>2</td>
+                                    <td> 
+                                        <button class="btn-pencil"><i class="fa fa-pencil"></i></button>
+                                        <button class="btn-trash"><i class="fa fa-trash-o"></i></button>
+                                    </td>
+                                </tr>
+
+                                <td>2</td>
+                                <td class="name">Gã Điên Báo Thù</td>
+                                <td>11-03-2022 / 30-04-2022</td>
+                                <td>18:00:00 / 19:65:00</td>
+                                <td>4</td>
+                                <td> 
+                                    <button class="btn-pencil"><i class="fa fa-pencil"></i></button>
+                                    <button class="btn-trash"><i class="fa fa-trash-o"></i></button>
+                                </td>
+                            </tr>
+
+                            <td>3</td>
+                            <td class="name">Gấu Đỏ Biến Hình</td>
+                            <td>11-03-2022 / 30-04-2022</td>
+                            <td>10:00:00 / 11:30:00</td>
+                            <td>3</td>
+                            <td> 
+                                <button class="btn-pencil"><i class="fa fa-pencil"></i></button>
+                                <button class="btn-trash"><i class="fa fa-trash-o"></i></button>
+                            </td>
+                        </tr>
+
+                        <td>4</td>
+                        <td class="name">Quái Xế Giao Hàng</td>
+                        <td>11-03-2022 / 30-04-2022</td>
+                        <td>09:00:00 / 10:35:00</td>
+                        <td>5</td>
+                        <td> 
+                            <button class="btn-pencil"><i class="fa fa-pencil"></i></button>
+                            <button class="btn-trash"><i class="fa fa-trash-o"></i></button>
+                        </td>
+                    </tr>
+
+                    <td>5</td>
+                    <td class="name">Bóng Đè</td>
+                    <td>18-03-2022 / 15-05-2022</td>
+                    <td>21:00:00 / 22:41:00</td>
+                    <td>6</td>
+                    <td> 
+                        <button class="btn-pencil"><i class="fa fa-pencil"></i></button>
+                        <button class="btn-trash"><i class="fa fa-trash-o"></i></button>
+                    </td>
+                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
+                    <button class="btn">Thêm Chương Trình</button>
+                                        
+                </div>
+        </div>
+        
+        </div>
+
+    <script src="scripts/btnMenu.js"></script>
+  </body>
+</html>

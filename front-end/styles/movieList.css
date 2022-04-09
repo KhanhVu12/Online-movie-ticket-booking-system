@@ -1,0 +1,76 @@
+html,
+body {
+  max-width: 100%;
+  max-height: 100%;
+  overflow-x: hidden;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: whitesmoke;
+  overflow-y: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  text-transform: bold;
+}
+
+.details{
+    position:relative;
+    width: 100%;
+    padding: grid;
+    margin-left: 150px;
+    margin-top: 30px;
+    
+}
+.details .mov-list{
+    position:relative;
+    display: grid;
+    min-height: 500px;
+    max-width:1050px;
+    text-align: center;
+}
+.details .mov-list .name{
+    text-align:initial;
+}
+.link{
+    color:whitesmoke;
+}
+.link:hover{
+    color:#97c83e;
+}
+
+.btn-check,
+.btn-pencil,
+.btn-trash{
+    cursor: pointer;
+    border-radius: 5px;
+    border:none;
+    width:30px;
+    height: 30px;
+}
+
+.btn-check{
+    color:whitesmoke;
+    background-color: #3cd20f;
+}
+.btn-check:hover{
+    color:black;
+    background-color: #adeea4;
+}
+
+.btn-pencil{
+    color:whitesmoke;
+    background-color: #0fd8ea;
+}
+.btn-pencil:hover{
+    color:black;
+    background-color: #88d7ed;
+}
+
+.btn-trash{
+    color:whitesmoke;
+    background-color: #f50909;
+}
+.btn-trash:hover{
+    color:black;
+    background-color: #eea6a4;
+}

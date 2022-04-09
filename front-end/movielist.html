@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="styles/navbar.css" rel="stylesheet" type="text/css" />
+    <link href="styles/movieList.css" rel="stylesheet" type="text/css" />
+    <link href="styles/registration.css" rel="stylesheet" type="text/css" />
+    <link href="styles/adminpage.css" rel="stylesheet" type="text/css" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/Logo/Logo-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/Logo/Logo-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/19fbdee3eb.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Kinema</title>
+  </head>
+
+  <body>
+    <nav class="navBar">
+      <div class="btn-menu">
+        <div class="btn-menuHamburger"></div>
+      </div>
+
+      <div class="logoWrapper">
+        <img src="/images/Logo/Logo1.png" alt="logo" class="logo" />
+        <img src="/images/Logo/Logo.png" alt="logo" class="logo" />
+      </div>
+
+      <div class="authentication">
+        <button class="btn-logout">Đăng Xuất</button>
+      </div>
+    </nav>
+
+    <!--Main Sidebar Menu-->
+
+    <div class="sidebar">
+      <ul class="sidebar-menu" id="nav-accordion">
+          <p class="centered">          
+          <img src="images/Logo/avatar.png" class="img-circle" width="80"> 
+          </p>
+         <h4 class="centered">Sam Sam</h4>
+
+        <li class="mt">
+            <a class="active" href="indexAdmin.html">
+                <i class="fa fa-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+        <li class="sub-menu">
+            <a href="javascript:;">
+                <i class="fa fa-film"></i>
+                <span>Phim</span>
+            </a>
+        </li>
+        
+        <li class="sub-menu">
+            <a href="javascript:;">
+                <i class="fa fa-clock-o"></i>
+                <span>Thời Gian Chiếu</span>
+            </a>
+        </li>
+
+        <li class="sub-menu">
+            <a href="javascript:;">
+                <i class="fa fa-address-book-o"></i>
+                <span>Quản Lí Tài Khoản</span>
+            </a>
+        </li>
+
+        <li class="sub-menu">
+            <a href="javascript:;">
+                <i class="fa fa-ticket"></i>
+                <span>Quản Lí Vé Phim</span>
+            </a>
+        </li>
+      </ul>
+    </div>
+
+        <!--Movie List-->
+        <div class="container">
+            <div class="signup-contain">
+
+                <h3 class="signup"><i class="fa fa-angle-right"></i> DANH SÁCH PHIM</h3>
+                <hr  width="80%" size="2px" align="center" color="black" />
+                <div class="details">
+                    <div class="mov-list">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td class="name"><b>TÊN PHIM</b></td>
+                                    <td><b>THỜI LƯỢNG</b></td>
+                                    <td><b>THỂ LOẠI</b></td>
+                                    <td><b>TRAILER</b></td>
+                                    <td><b>HÌNH ẢNH</b></td>
+                                    <td><b>QUẢN LÍ</b></td>
+                                </tr>
+                                
+                            </thead>
+                            
+                            <tbody>
+                                <tr>
+                                    <td class="name">The BatMan</td>
+                                    <td>90 phút</td>
+                                    <td>Hành Động</td>
+                                    <td><a href="#" class="link">abc</a></td>
+                                    <td><img
+                                        src="/images/poster/the-batman.png" width="60px" height="80px" /></td>
+                                    <td>
+                                        <button class="btn-check"><i class="fa fa-check"></i></button> 
+                                        <button class="btn-pencil"><i class="fa fa-pencil"></i></button>
+                                        <button class="btn-trash"><i class="fa fa-trash-o"></i></button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="name">Gã Điên Báo Thủ</td>
+                                    <td>115 phút</td>
+                                    <td>Hành Động</td>
+                                    <td><a href="#" class="link">123</a></td>
+                                    <td><img
+                                        src="/images/poster/ga-dien-bao-thu.png" width="60px" height="80px"/></td>
+                                    <td>
+                                        <button class="btn-check"><i class="fa fa-check"></i></button> 
+                                        <button class="btn-pencil"><i class="fa fa-pencil"></i></button>
+                                        <button class="btn-trash"><i class="fa fa-trash-o"></i></button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="name">Gấu Đỏ Biến Hình</td>
+                                    <td>90 phút</td>
+                                    <td>Hoạt Hình</td>
+                                    <td><a href="#" class="link">135</a></td>
+                                    <td><img
+                                        src="/images/poster/gau-do-bien-hinh.png" width="60px" height="80px"/></td>
+                                    <td>
+                                        <button class="btn-check"><i class="fa fa-check"></i></button> 
+                                        <button class="btn-pencil"><i class="fa fa-pencil"></i></button>
+                                        <button class="btn-trash"><i class="fa fa-trash-o"></i></button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="name">Quái Xế Giao Hàng</td>
+                                    <td>95 phút</td>
+                                    <td>Hài</td>
+                                    <td><a href="#" class="link">adc</a></td>
+                                    <td><img
+                                        src="/images/poster/quai-xe-giao-hang.png" width="60px" height="80px"/></td>
+                                    <td>
+                                        <button class="btn-check"><i class="fa fa-check"></i></button> 
+                                        <button class="btn-pencil"><i class="fa fa-pencil"></i></button>
+                                        <button class="btn-trash"><i class="fa fa-trash-o"></i></button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="name">Bóng Đè</td>
+                                    <td>101 phút</td>
+                                    <td>Kinh Dị</td>
+                                    <td><a href="#" class="link">246</a></td>
+                                    <td><img
+                                        src="/images/poster/bong-de.png" width="60px" height="80px"/></td>
+                                    <td>
+                                        <button class="btn-check"><i class="fa fa-check"></i></button> 
+                                        <button class="btn-pencil"><i class="fa fa-pencil"></i></button>
+                                        <button class="btn-trash"><i class="fa fa-trash-o"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
+                    <button class="btn">Thêm Phim Mới</button>
+                                        
+                </div>
+        </div>
+        
+        </div>
+
+    <script src="scripts/btnMenu.js"></script>
+  </body>
+</html>

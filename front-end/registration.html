@@ -7,6 +7,7 @@
     <link href="styles/navbar.css" rel="stylesheet" type="text/css" />
     <link href="styles/registration.css" rel="stylesheet" type="text/css" />
     <link href="styles/footer.css" rel="stylesheet" type="text/css" />
+   
     <link
       rel="icon"
       type="image/png"
@@ -107,12 +108,47 @@
 
             <!-- Email -->
             <div class="form-group">
-              <label for="email" class="label-title">Email*</label>
+              <label for="email" class="label-title">Email *</label>
               <input
                 type="email"
                 id="email"
                 class="form-input"
                 placeholder="Nhập email"
+                required="required"
+              />
+            </div>
+            <!--phone number-->
+            <div class="form-group">
+              <label for="phone" class="label-title">Số điện thoại *</label>
+              <input
+                type="phone"
+                id="phone"
+                class="form-input"
+                placeholder="Nhập số điện thoại"
+                required="required"
+              />
+            </div>
+
+            <!-- address -->
+            <div class="form-group">
+              <label for="address" class="label-title">Địa chỉ *</label>
+              <input
+                type="address"
+                id="address"
+                class="form-input"
+                placeholder="Nhập tỉnh / thành phố"
+                required="required"
+              />
+            </div>
+
+            <!--Age-->
+            <div class="form-group">
+              <label for="age" class="label-title">Tuổi *</label>
+              <input
+                type="age"
+                id="age"
+                class="form-input"
+                placeholder="Nhập tuổi"
                 required="required"
               />
             </div>
@@ -146,7 +182,7 @@
             <!-- Gender  -->
             <div class="horizontal-group">
               <div class="form-group left">
-                <label class="label-title">Giới tính:</label>
+                <label class="label-title">Giới tính :</label>
                 <div class="input-group">
                   <label for="male"
                     ><input type="radio" name="gender" value="male" id="male" />

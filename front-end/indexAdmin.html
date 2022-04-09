@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="styles/navbar.css" rel="stylesheet" type="text/css" />
+    <link href="styles/registration.css" rel="stylesheet" type="text/css" />
+    <link href="styles/adminpage.css" rel="stylesheet" type="text/css" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/Logo/Logo-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/Logo/Logo-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/19fbdee3eb.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Kinema</title>
+  </head>
+
+  <body>
+    <nav class="navBar">
+      <div class="btn-menu">
+        <div class="btn-menuHamburger"></div>
+      </div>
+
+      <div class="logoWrapper">
+        <img src="/images/Logo/Logo1.png" alt="logo" class="logo" />
+        <img src="/images/Logo/Logo.png" alt="logo" class="logo" />
+      </div>
+
+      <div class="authentication">
+        <button class="btn-logout">Đăng Xuất</button>
+      </div>
+    </nav>
+
+    <!--Main Sidebar Menu-->
+
+    <div class="sidebar">
+      <ul class="sidebar-menu" id="nav-accordion">
+          <p class="centered">          
+          <img src="images/Logo/avatar.png" class="img-circle" width="80"> 
+          </p>
+         <h4 class="centered">Sam Sam</h4>
+
+        <li class="mt">
+            <a class="active" href="indexAdmin.html">
+                <i class="fa fa-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+        <li class="sub-menu">
+            <a href="javascript:;" href="movielist.html">
+                <i class="fa fa-film"></i>
+                <span>Phim</span>
+            </a>
+        </li>
+        
+        <li class="sub-menu">
+            <a href="javascript:;">
+                <i class="fa fa-clock-o"></i>
+                <span>Thời Gian Chiếu</span>
+            </a>
+        </li>
+
+        <li class="sub-menu">
+            <a href="javascript:;">
+                <i class="fa fa-address-book-o"></i>
+                <span>Quản Lí Tài Khoản</span>
+            </a>
+        </li>
+
+        <li class="sub-menu">
+            <a href="javascript:;">
+                <i class="fa fa-ticket"></i>
+                <span>Quản Lí Vé Phim</span>
+            </a>
+        </li>
+      </ul>
+    </div>
+    
+    <!--dashboard-->
+
+    <div class="container">
+      <div class="signup-contain">
+
+        <h3 class="signup"><i class="fa fa-angle-right"></i> DASHBOARD</h3>
+        <div class="grid-container">
+        <div class="grid-container1">
+          <div class="grid-item1">Phim</div></div>
+          <div class="grid-container2">
+          <div class="grid-item2">Khách Hàng</div></div>
+          <div class="grid-container3">
+          <div class="grid-item3">Vé Xem Phim</div></div>
+          <div class="grid-container4">
+          <div class="grid-item4">Thanh Toán</div></div>
+          </div>
+        </div>
+        
+      </div>
+
+
+
+    <script src="scripts/btnMenu.js"></script>
+    
+  </body>
+</html>
