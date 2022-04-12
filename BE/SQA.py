@@ -9,7 +9,7 @@ CORS(app)
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-# app.config['MYSQL_PASSWORD'] = '123456789'
+app.config['MYSQL_PASSWORD'] = '123456789'
 app.config['MYSQL_DB'] = 'sqaProject'
 
 mysql = MySQL(app)
@@ -45,27 +45,27 @@ def login():
 @app.route('/search', methods=['POST'])
 def search():
     keyword = "%"+request.form['keyword']+"%"
-    print("=====================")
     cur = mysql.connection.cursor()
     cur.execute("SELECT * FROM movie WHERE title LIKE %s OR director LIKE %s OR actors LIKE %s",(keyword, keyword, keyword))
     movies = cur.fetchall()
-    return jsonify(movies)
+    return jsonify({"movies":movies})
 
 #list 10 latest movies 
-@app.route('/movies', methods=['GET'])
+@app.route('/movies', methods=['POST'])
 def movieList():
     cur = mysql.connection.cursor()
     cur.execute("SELECT * FROM (SELECT * FROM movie ORDER BY releasedDate DESC LIMIT 10) Var1 ORDER BY movieId")
     movies = cur.fetchall()
-    return jsonify(movies)
+    return jsonify({"movies":movies})
 
-#list food 
-@app.route('/food', methods=['GET'])
-def foodList():
+#show movie info
+@app.route('/movies', methods=['GET'])
+def movieInfo():
+    movieId = int(request.args['movieId'])
     cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM food")
-    foods = cur.fetchall()
-    return jsonify(foods)
+    cur.execute("SELECT * FROM movie WHERE movieId = %s", [movieId])
+    movies = cur.fetchall()
+    return jsonify({"movies":movies})
 
 #add movie
 @app.route('/movies/add', methods=['POST'])
@@ -122,6 +122,67 @@ def deleteMovie():
     message="Deleted successfully!"
     return message
 
+#list food 
+@app.route('/food', methods=['GET', 'POST'])
+def foodList():
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM food")
+    foods = cur.fetchall()
+    return jsonify({"foods":foods})
+
+#add food
+@app.route('/food/add', methods=['POST'])
+def addFood():
+    form = request.form
+    foodName = form['foodName']
+    foodPrice = form['foodPrice']
+    cur = mysql.connection.cursor()
+    cur.execute("INSERT INTO food (foodName, foodPrice) VALUES(%s, %s)",(foodName, foodPrice))
+    mysql.connection.commit()
+    cur.close()
+    message="Added successfully!"
+    return message
+
+#edit food
+@app.route('/food/edit', methods=['PUT'])
+def editFood():
+    form = request.form
+    foodId = form['foodId']
+    foodName = form['foodName']
+    foodPrice = form['foodPrice']
+    cur = mysql.connection.cursor()
+    cur.execute("UPDATE food SET foodName = %s, foodPrice = %s WHERE foodId = %s",(foodName, foodPrice, foodId))
+    mysql.connection.commit()
+    cur.close()
+    message="Updated successfully!"
+    return message
+
+#delete food
+@app.route('/food/delete', methods=['DELETE'])
+def deleteFood():
+    form = request.form
+    foodId = form['foodId']
+    cur = mysql.connection.cursor()
+    cur.execute("DELETE FROM food WHERE foodId = %s",[foodId])
+    mysql.connection.commit()
+    cur.close()
+    message="Deleted successfully!"
+    return message
+
+#showTimeListByMovieId
+@app.route('/time', methods=['GET'])
+def listShowTimeByMovie():
+    movieId = request.args.get('movieId')
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM showTime WHERE movieId = %s", [movieId])
+    showTime = cur.fetchall()
+    res=[]
+    for item in showTime:
+        data={}
+        data['startTime'] = item[2]
+        data['roomId'] = item[3]
+        res.append(data)
+    return jsonify({"showTime":res})
 
 #add showTime
 @app.route('/time/add', methods=['POST'])
@@ -136,21 +197,6 @@ def addShowTime():
     cur.close()
     message="Added successfully!"
     return message
-
-#showTimeListByMovieId
-@app.route('/time/list', methods=['GET'])
-def listShowTimeByMovie():
-    movieId = request.args.get('movieId')
-    cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM showTime WHERE movieId = %s", [movieId])
-    showTime = cur.fetchall()
-    res=[]
-    for item in showTime:
-        data={}
-        data['startTime'] = item[2]
-        data['roomId'] = item[3]
-        res.append(data)
-    return jsonify(res)
 
 #edit showTime
 @app.route('/time/edit', methods=['PUT'])
@@ -178,37 +224,137 @@ def deleteShowTime():
     message="Deleted successfully!"
     return message
 
+#get all Bills in a range of time
+@app.route('/bill/all', methods=['POST'])
+def getBills():
+    #typeOf(time) = String => e.g. "Today", "This week", "This month" 
+    time = request.form['time']
+    cur = mysql.connection.cursor()
+    if time == "Today":
+        cur.execute("SELECT * FROM orderBill WHERE DATE(orderDate) = CURDATE()")
+    elif time == "This week":
+        cur.execute("SELECT * FROM orderBill WHERE YEARWEEK(orderDate, 1) = YEARWEEK(CURDATE(), 1)")
+    elif time == "This month":
+        cur.execute("SELECT * FROM orderBill WHERE MONTH(orderDate) = MONTH(CURRENT_DATE()) AND YEAR(orderDate) = YEAR(CURRENT_DATE())")
+    else :
+        cur.execute("SELECT * FROM orderBill")
+    bills = cur.fetchall()
+    return jsonify({"bills":bills})
+
+#get orderBill by userId
+@app.route('/bill', methods=['GET'])
+def getBillByUserId():
+    userId = int(request.args['userId'])
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM orderBill WHERE userId = %s", [userId])
+    bills = cur.fetchall()
+    return jsonify({"bills":bills})
+
 #generate Bill(include ticket and food)
 @app.route('/bill/add', methods=['POST'])
 def generateBill():
     cur = mysql.connection.cursor()
     form = request.form
     userId = form['userId']
-    seatId = form['seatId']
+    seatName = form['seatName']
+    seatTypeId = form['seatTypeId']
     showTimeId = form['showTimeId']
     foodId = form['foodId']
     amount = form['amount']
+    foodTotal = 0
     ticketTotal = 0
     for i in range(len(foodId)):
         fId = foodId[i]
         fAmount = amount[i]
         cur.execute("INSERT INTO foodOrder (foodId, userId, amount) VALUES (%s, %s, %s)", (fId, userId, fAmount))
-    cur.execute("SELECT sum(foodPrice*amount) FROM foodOrder JOIN food ON  foodOrder.foodId = food.foodId where userId = %s", (userId))
-    foodTotal = cur.fetchone()
-    for i in range(len(seatId)):
-        sId = seatId[i]
+        cur.execute("SELECT foodPrice FROM foodOrder JOIN food ON  foodOrder.foodId = food.foodId ORDER BY fOrderId DESC LIMIT 1")
+        foodPrice = cur.fetchone()
+        foodTotal += foodPrice[0]
+    for i in range(len(seatTypeId)):
         stId = showTimeId[i]
-        cur.execute("INSERT INTO ticket VALUES (%s, %s, %s)", (userId, sId, stId))
-        cur.execute("SELECT price FROM ticket JOIN seat ON  ticket.seatId = seat.seatId join seatType on seat.seatTypeId= seatType.seatTypeId where ticket.seatId = %s", (sId))
+        # insert the bookedSeat
+        cur.execute("INSERT INTO bookedSeat(seatName, seatTypeId, showTimeId) VALUES (%s, %s, %s)", (seatName, seatTypeId, showTimeId))
+        # return the id of the last bookedSeat
+        cur.execute("SELECT count(*) FROM bookedSeat")
+        sId = cur.fetchone()
+        print(sId[0])
+        # insert the purchased ticket
+        cur.execute("INSERT INTO ticket VALUES (%s, %s, %s)", (userId, sId[0], stId))
+        # count the price of each ticket
+        cur.execute("SELECT price FROM ticket JOIN bookedSeat ON  ticket.seatId = bookedSeat.seatId JOIN seatType ON bookedSeat.seatTypeId= seatType.seatTypeId WHERE userId = %s and ticket.seatId = %s and ticket.showTimeId = %s", (userId, sId, stId))
         ticketPrice = cur.fetchone()
-        ticketTotal= ticketTotal + ticketPrice[0]
-    totalPrice = foodTotal[0] + ticketTotal
-    cur.execute("INSERT INTO orderBill VALUES (%s, now(), %s, 'online')", [userId, totalPrice])
+        ticketTotal += ticketPrice[0]
+    totalPrice = foodTotal + ticketTotal
+    cur.execute("INSERT INTO orderBill VALUES (%s, now(), %s, 'online')", (userId, totalPrice))
+    
     mysql.connection.commit()
     cur.close()
     message="Added successfully!"
     return message
 
+#list user 
+@app.route('/user', methods=['GET', 'POST'])
+def userList():
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM user")
+    users = cur.fetchall()
+    return jsonify({"users": users})
+
+#add user
+@app.route('/user/add', methods=['POST'])
+def addUser():
+    form = request.form
+    userName = form['userName']
+    userPassword = form['userPassword']
+    userAge = form['userAge']
+    userEmail = form['userEmail']
+    userAddress = form['userAddress']
+    phoneNumber = form['phoneNumber']
+    cur = mysql.connection.cursor()
+    cur.execute("INSERT INTO user (userName, userPassword, roleId, userAge, userEmail, userAddress, phoneNumber) VALUES(%s, %s, 1, %s, %s, %s, %s)",(userName, userPassword, userAge, userEmail, userAddress, phoneNumber))
+    mysql.connection.commit()
+    cur.close()
+    message="Added successfully!"
+    return message
+
+#edit user
+@app.route('/user/edit', methods=['PUT'])
+def editUser():
+    form = request.form
+    userId = form['userId']
+    userName = form['userName']
+    userPassword = form['userPassword']
+    userAge = form['userAge']
+    userEmail = form['userEmail']
+    userAddress = form['userAddress']
+    phoneNumber = form['phoneNumber']
+    cur = mysql.connection.cursor()
+    cur.execute("UPDATE user SET userName = %s, userPassword = %s, userAge = %s, userEmail = %s, userAddress = %s, phoneNumber = %s WHERE userId = %s",(userName, userPassword, userAge, userEmail, userAddress, phoneNumber, userId))
+    mysql.connection.commit()
+    cur.close()
+    message="Updated successfully!"
+    return message
+
+#delete user
+@app.route('/user/delete', methods=['DELETE'])
+def deleteUser():
+    form = request.form
+    userId = form['userId']
+    cur = mysql.connection.cursor()
+    cur.execute("DELETE FROM user WHERE userId = %s",[userId])
+    mysql.connection.commit()
+    cur.close()
+    message="Deleted successfully!"
+    return message
+
+#list all taken seats by showTimeId
+@app.route('/ticket', methods=['GET'])
+def listTakenSeats():
+    showTimeId = int(request.args['showTimeId'])
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM bookedSeat WHERE showTimeId = %s", [showTimeId])
+    tickets = cur.fetchall()
+    return jsonify({"tickets":tickets})
 
 if __name__ == '__main__':
     app.run(debug=True)
