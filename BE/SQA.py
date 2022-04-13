@@ -267,7 +267,7 @@ def generateBill():
         fId = foodId[i]
         fAmount = amount[i]
         cur.execute("INSERT INTO foodOrder (foodId, userId, amount) VALUES (%s, %s, %s)", (fId, userId, fAmount))
-        cur.execute("SELECT foodPrice FROM foodOrder JOIN food ON  foodOrder.foodId = food.foodId ORDER BY fOrderId DESC LIMIT 1")
+        cur.execute("SELECT foodPrice FROM foodOrder JOIN food ON  foodOrder.foodId = food.foodId ORDER BY foodOrder.foodId DESC LIMIT 1")
         foodPrice = cur.fetchone()
         foodTotal += foodPrice[0]
     for i in range(len(seatTypeId)):
