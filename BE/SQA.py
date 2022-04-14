@@ -50,18 +50,34 @@ def search():
     movies = cur.fetchall()
     return jsonify({"movies":movies})
 
+#list all movies 
+@app.route('/movies/all', methods=['GET'])
+def movieAll():
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM movie")
+    movies = cur.fetchall()
+    return jsonify({"movies":movies})
+
 #list 10 latest movies 
-@app.route('/movies', methods=['POST'])
+@app.route('/movies', methods=['GET'])
 def movieList():
     cur = mysql.connection.cursor()
     cur.execute("SELECT * FROM (SELECT * FROM movie ORDER BY releasedDate DESC LIMIT 10) Var1 ORDER BY movieId")
     movies = cur.fetchall()
     return jsonify({"movies":movies})
 
+#list upcoming movies 
+@app.route('/movies/upcoming', methods=['GET'])
+def movieUpcoming():
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM movie WHERE releasedDate > CURDATE() ORDER BY releasedDate")
+    movies = cur.fetchall()
+    return jsonify({"movies":movies})
+
 #show movie info
-@app.route('/movies', methods=['GET'])
+@app.route('/movies', methods=['POST'])
 def movieInfo():
-    movieId = int(request.args['movieId'])
+    movieId = request.form['movieId']
     cur = mysql.connection.cursor()
     cur.execute("SELECT * FROM movie WHERE movieId = %s", [movieId])
     movies = cur.fetchall()
