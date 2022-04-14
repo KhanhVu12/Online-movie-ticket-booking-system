@@ -62,7 +62,7 @@ def movieAll():
 @app.route('/movies', methods=['GET'])
 def movieList():
     cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM (SELECT * FROM movie ORDER BY releasedDate DESC LIMIT 10) Var1 ORDER BY movieId")
+    cur.execute("SELECT * FROM (SELECT * FROM movie WHERE releasedDate <= CURDATE() ORDER BY releasedDate DESC LIMIT 10) Var1 ORDER BY movieId")
     movies = cur.fetchall()
     return jsonify({"movies":movies})
 
