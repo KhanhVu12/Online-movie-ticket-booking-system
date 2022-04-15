@@ -36,7 +36,99 @@ span{
     margin-top: 90px;
     margin-left:150px;
 }
-.grid-container {
+
+/**main {
+  margin-top: 85px;
+  padding: 2rem 1.5rem;
+  background: #f1f5f9;
+  min-height: calc(100vh - 90px);
+}**/
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 0.43fr);
+  margin-top: 100px;
+  grid-gap: 3rem;
+  margin-left: 150px;
+  
+}
+
+.card-single1 {
+  display: flex;
+  justify-content:space-between;
+  background-color: rgb(37, 156, 220);
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  border: 1px solid rgba(225, 207, 207, 0.8);
+}
+.card-single1:hover {
+  background-color: rgb(85, 188, 236);
+  color: black;
+}
+
+.card-single2 {
+  display: flex;
+  justify-content:space-between;
+  background-color: rgb(231, 136, 47);
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  border: 1px solid rgba(225, 207, 207, 0.8);
+}
+.card-single2:hover {
+  background-color: rgb(219, 166, 117);
+  color: black;
+}
+
+.card-single3 {
+  display: flex;
+  justify-content:space-between;
+  background-color: rgb(76, 212, 106);
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  border: 1px solid rgba(225, 207, 207, 0.8);
+}
+.card-single3:hover {
+  background-color: rgb(158, 220, 123);
+  color: black;
+}
+
+.card-single4 {
+  display: flex;
+  justify-content:space-between;
+  background-color: rgb(223, 79, 79);
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  border: 1px solid rgba(225, 207, 207, 0.8);
+}
+.card-single4:hover {
+  background-color: rgb(195, 109, 123);
+  color: black;
+}
+
+.card-single5 {
+  display: flex;
+  justify-content:space-between;
+  background-color: rgb(214, 188, 17);
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  border: 1px solid rgba(225, 207, 207, 0.8);
+}
+.card-single5:hover {
+  background-color: rgb(245, 231, 113);
+  color: black;
+}
+
+/**.grid-container {
     display: grid;
     gap: 5px 100px;
     grid-template-columns: auto auto;
@@ -46,12 +138,10 @@ span{
 .grid-container1 {
     margin-top:10px;
     display: grid;
-    grid-template-columns:100px;
     background: linear-gradient(90deg, #65A9A7 0%, #436C6B 100%);
-    width:395px;
-    margin-left:180px;
     padding: 10px;
     border-radius: 10px;
+    margin: auto;
   }
   .grid-item1 {
     background-color: rgb(37, 156, 220);
@@ -61,7 +151,6 @@ span{
     text-align: center;
     display: block;
     margin:auto;
-    width:190px;
     border-radius: 10px;
     cursor: pointer;
   }
@@ -72,12 +161,10 @@ span{
   .grid-container2 {
     margin-top:10px;
     display: grid;
-    grid-template-columns:100px;
     background: linear-gradient(90deg, #65A9A7 0%, #436C6B 100%);
-    width:395px;
-    margin-right:190px;
     padding: 10px;
     border-radius: 10px;
+    margin: auto;
   }
   .grid-item2 {
     background-color: rgb(231, 136, 47);
@@ -88,7 +175,6 @@ span{
     display: block;
     margin-left:auto;
     margin-right: auto;
-    width:190px;
     border-radius: 10px;
     cursor: pointer;
   }
@@ -99,12 +185,10 @@ span{
   .grid-container3 {
     margin-top:50px;
     display: grid;
-    grid-template-columns:100px;
     background: linear-gradient(90deg, #65A9A7 0%, #436C6B 100%);
-    width:395px;
-    margin-left:180px;
     padding: 10px;
     border-radius: 10px;
+    margin:auto;
   }
   .grid-item3 {
     background-color: rgb(76, 212, 106);
@@ -114,7 +198,6 @@ span{
     text-align: center;
     display: block;
     margin:auto;
-    width:190px;
     border-radius: 10px;
     cursor: pointer;
   }
@@ -125,12 +208,10 @@ span{
   .grid-container4 {
     margin-top:50px;
     display: grid;
-    grid-template-columns:100px;
     background: linear-gradient(90deg, #65A9A7 0%, #436C6B 100%);
-    width:395px;
-    margin-right:190px;
     padding: 10px;
     border-radius: 10px;
+    margin: auto;
   }
   .grid-item4 {
     background-color: rgb(223, 79, 79);
@@ -141,11 +222,11 @@ span{
     display: block;
     margin-left:auto;
     margin-right: auto;
-    width:190px;
     border-radius: 10px;
     cursor: pointer;
   }
   .grid-item4:hover{
     background-color: rgb(195, 109, 123);
     color: black;
-  }
+  }**/
+  
