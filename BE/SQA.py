@@ -1,15 +1,15 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, make_response
 from flask_mysqldb import MySQL
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
+import logging
 
 app = Flask(__name__)
-app.config['CORS_HEADERS'] = 'Content-Type'
-
-CORS(app)
+app.config['CORS_HEADERS'] = 'Access-Control-Allow-Origin'
+cors = CORS(app)
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = '123456789'
+app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'sqaProject'
 
 mysql = MySQL(app)
@@ -50,20 +50,27 @@ def search():
     movies = cur.fetchall()
     return jsonify({"movies":movies})
 
-#list 10 latest movies 
-@app.route('/movies', methods=['POST'])
+#list current movies 
+@app.route('/movies', methods=['GET'])
 def movieList():
     cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM (SELECT * FROM movie ORDER BY releasedDate DESC LIMIT 10) Var1 ORDER BY movieId")
+    cur.execute("SELECT * FROM (SELECT * FROM movie WHERE releasedDate <= CURDATE()) Var1 ORDER BY movieId")
     movies = cur.fetchall()
     return jsonify({"movies":movies})
 
 #show movie info
-@app.route('/movies', methods=['GET'])
-def movieInfo():
-    movieId = int(request.args['movieId'])
+@app.route('/movies/<id>', methods=['GET'])
+def movieInfo(id):
     cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM movie WHERE movieId = %s", [movieId])
+    cur.execute("SELECT * FROM movie WHERE movieId = %s", [id])
+    movies = cur.fetchall()
+    return jsonify({"movies":movies})
+
+#list upcoming movies 
+@app.route('/movies/upcoming', methods=['GET'])
+def movieUpcoming():
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM (SELECT * FROM movie WHERE releasedDate > CURDATE()) Var1 ORDER BY releasedDate")
     movies = cur.fetchall()
     return jsonify({"movies":movies})
 
