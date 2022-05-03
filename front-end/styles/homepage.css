@@ -15,7 +15,7 @@ body {
 
 /* home page */
 .container {
-  margin-top: 78px;
+  margin-top: 77px;
   background-color: #151515;
   width: 100%;
   min-height: calc(200vh - 80px);
@@ -109,10 +109,10 @@ body {
 .movie-title {
   background-color: transparent;
   padding: 0 20px;
-  font-size: 28px;
+  font-size: 25px;
   font-weight: bold;
   position: absolute;
-  top: 20%;
+  top: 8%;
   left: 40px;
   opacity: 0;
   transition: all 0.35s ease-in-out;
@@ -120,13 +120,18 @@ body {
 
 .movie-desc {
   background-color: transparent;
+  overflow: hidden;
+  text-overflow: ellipsis;
   padding: 10px;
   font-size: 14px;
   position: absolute;
-  top: 30%;
+  top: 35%;
   left: 60px;
   width: 200px;
   opacity: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
   transition: all 0.35s ease-in-out;
 }
 

@@ -24,9 +24,6 @@ body {
 }
 
 .movie-info {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #151515),
-    url("/images/poster-1920x1195/the-batman.png");
-  background-repeat: no-repeat;
   display: flex;
   padding: 50px;
   margin-bottom: 50px;
@@ -70,27 +67,14 @@ body {
   margin-right: 50px;
 }
 
-.movie-info-content button {
-  background-color: #97c83e;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 20px;
-  border: none;
-  outline: none;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-
-.movie-info-content button:hover {
-  background-color: white;
-  color: #97c83e;
-  transition: all 0.3s ease-in-out;
+.movie-info-content button iframe {
+  aspect-ratio: 16/9;
 }
 
 /* showtime */
 .showtime {
-  min-height: 1300px;
+  min-height: 1400px;
+  /* display: none; */
 }
 
 .showtime h3 {
@@ -187,9 +171,8 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
-
 /* Seat */
-.seat-selection{
+.seat-selection {
   background-color: #2f4a60;
   padding: 25px 50px;
   display: flex;
@@ -199,7 +182,7 @@ body {
   justify-self: center;
 }
 
-.showcase{
+.showcase {
   background-color: #121c26;
   padding: 10px 20px;
   border-radius: 5px;
@@ -212,37 +195,37 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px ;
+  margin: 10px;
 }
 .showcase li div {
   margin: 5px;
 }
 
-.seat{
+.seat {
   background-color: #5f5f72;
   width: 15px;
   height: 15px;
   padding: 10px;
   border-radius: 5px;
 }
-.seat.selected{
-  background-color: #97c83e;
+.seat.selected {
+  background-color: #97c83e !important;
 }
-.seat.vip{
-  background-color: rgba(153, 205, 50, 0.795);
+.seat.vip {
+  background-color: rgba(0, 255, 255, 0.542);
 }
-.seat.occupied{
+.seat.occupied {
   background-color: red;
 }
-.seat:not(.occupied):hover{
+.seat:not(.occupied):hover {
   cursor: pointer;
   transform: scale(1.2);
 }
-.seat-container{
+.seat-container {
   perspective: 1000px;
   margin-bottom: 30px;
 }
-.screen{
+.screen {
   background-color: #fff;
   height: 70px;
   width: 100%;
@@ -250,11 +233,11 @@ body {
   transform: rotateX(-45deg);
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.75);
 }
-.seatname-left{
+.seatname-left {
   float: left;
   margin-left: -100px;
 }
-.seatname-left th{
+.seatname-left th {
   background-color: #5f5f72;
   width: 15px;
   height: 15px;
@@ -262,15 +245,15 @@ body {
   border-radius: 5px;
 }
 
-.seatname-middle{
+.seatname-middle {
   float: left;
 }
 
-.seatname-right{
+.seatname-right {
   float: right;
   margin-right: -100px;
 }
-.seatname-right th{
+.seatname-right th {
   background-color: #5f5f72;
   width: 15px;
   height: 15px;
@@ -278,9 +261,165 @@ body {
   border-radius: 5px;
 }
 
-p.noti-text{
-  margin: 5px 0; 
+p.noti-text {
+  margin: 5px 0 50px;
 }
-p.noti-text span{
+p.noti-text span {
   color: #97c83e;
+}
+
+.list-time button {
+  background-color: #97c83e;
+  color: white;
+  padding: 20px 20px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  font-size: large;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.list-time button:hover {
+  background-color: white;
+  color: #97c83e;
+  transition: all 0.3s ease-in-out;
+}
+
+/* food order */
+.food-order {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 5% 7rem;
+  gap: 20px;
+}
+
+.food-order h3 {
+  font-size: 25px;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 10px 150px;
+  border-bottom: 2px solid #608a2e;
+  padding: 15px 15px;
+  width: 85%;
+  
+}
+
+.card {
+  background-color: white;
+  color: #10171e;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.food-img {
+  width: 200px;
+  overflow: hidden;
+}
+
+.food-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.food-category {
+  font-size: 25px;
+  padding: 10px 0 15px 0;
+}
+
+.price {
+  font-size: 15px;
+  padding-bottom: 15px;
+}
+
+.food-footer {
+  padding: 20px;
+}
+
+.food-footer {
+  cursor: pointer;
+  user-select: none;
+}
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 20px;
+  width: 100%;
+}
+
+.food-footer span {
+  border-style: solid;
+  padding: 10px 15px;
+  margin: 10px;
+}
+
+.food-order button {
+  background-color: #97c83e;
+  color: white;
+  padding: 20px 20px;
+  width: 200px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  font-size: large;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.food-order button:hover {
+  background-color: white;
+  color: #97c83e;
+  transition: all 0.3s ease-in-out;
+}
+
+.confirm-screen{
+  min-height: 750px;
+}
+
+.confirm-screen h2 {
+  font-size: 25px;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0 auto;
+  border-bottom: 2px solid #608a2e;
+  padding: 15px 15px;
+  width: 75%;
+  margin-bottom: 50px;
+}
+
+.confirm-screen-wrapper{
+  background-color: #777;
+  max-width: 970px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+  align-items: center;
+  margin: 0 auto;
+  padding: 2rem 7rem;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+}
+
+.info h3{
+  margin-right: 10px;
+}
+
+.item{
+  display: flex;
+  align-items: center;
+}
+
+.item h3{
+  margin-right: 10px;
 }
