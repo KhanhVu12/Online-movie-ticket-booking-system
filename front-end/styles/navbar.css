@@ -216,7 +216,11 @@ body {
     text-transform: bold;
 }
 
-.login-form .register {
+.login-form .login{
+    width: 100%;
+}
+
+.login-form .register{
     width: 100%;
 }
 
