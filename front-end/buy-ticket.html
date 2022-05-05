@@ -33,14 +33,15 @@
     </nav>
     <div class="login-form">
         <ul class="login-list">
+            <form id="form-login">
             <li>
-                <input type="text" class="txt" placeholder="Nhập Email" />
+                <input id="email" name="email" type="text" class="txt" placeholder="Nhập Email" />
             </li>
-            <li><input type="password" class="txt" placeholder="Mật Khẩu" /></li>
-            <p><input type="checkbox" />Ghi nhớ đăng nhập</p>
+            
+            <li><input id="password" name="password" type="password" class="txt" placeholder="Mật Khẩu" /></li>
+            </form>
         </ul>
         <button class="login" >Đăng Nhập</button>
-        <a href="#">Quên Mật Khẩu</a>
         <button class="register" onclick="location.href='registration.html'">Đăng Kí</button>
     </div>
     <nav class="sidebar">
@@ -60,31 +61,31 @@
                     <div class="list-time">
                         <div class="calendar">
                             <ul>
-                                <li><a href="#" class="calender-date active">
+                                <li><a href="#!" class="calender-date active">
                                     <span class="day">Chủ Nhật</span>
                                     <span class="date">27-03</span>
                                 </a></li>
-                                <li><a href="#" class="calender-date">
+                                <li><a href="#!" class="calender-date">
                                     <span class="day">Thứ Hai</span>
                                     <span class="date">28-03</span>
                                 </a></li>
-                                <li><a href="#" class="calender-date">
+                                <li><a href="#!" class="calender-date">
                                     <span class="day">Thứ Ba</span>
                                     <span class="date">29-03</span>
                                 </a></li>
-                                <li><a href="#" class="calender-date">
+                                <li><a href="#!" class="calender-date">
                                     <span class="day">Thứ Tư</span>
                                     <span class="date">30-03</span>
                                 </a></li>
-                                <li><a href="#" class="calender-date">
+                                <li><a href="#!" class="calender-date">
                                     <span class="day">Thứ Năm</span>
                                     <span class="date">31-03</span>
                                 </a></li>
-                                <li><a href="#" class="calender-date">
+                                <li><a href="#!" class="calender-date">
                                     <span class="day">Thứ Sáu</span>
                                     <span class="date">01-03</span>
                                 </a></li>
-                                <li><a href="#" class="calender-date">
+                                <li><a href="#!" class="calender-date">
                                     <span class="day">Thứ Bảy</span>
                                     <span class="date">02-03</span>
                                 </a></li>
@@ -92,12 +93,12 @@
                         </div>
                         <div class="time">
                             <ul>
-                                <li><a href="#">11:05</a></li>
-                                <li><a href="#" class="active">13:10</a></li>
-                                <li><a href="#">15:15</a></li>
-                                <li><a href="#">17:20</a></li>
-                                <li><a href="#">19:15</a></li>
-                                <li><a href="#">22:20</a></li>
+                                <li><a href="#!" id="1" class="show-time active">11:05</a></li>
+                                <li><a href="#!" id="2" class="show-time">13:10</a></li>
+                                <li><a href="#!" id="3" class="show-time">15:15</a></li>
+                                <li><a href="#!" id="4" class="show-time">17:20</a></li>
+                                <li><a href="#!" id="5" class="show-time">19:15</a></li>
+                                <li><a href="#!" id="6" class="show-time">22:20</a></li>
                             </ul>
                         </div>
                         <div class="seat-selection">
@@ -157,124 +158,124 @@
                                 </table>
                                 <table class="seatname-middle">
                                     <tr>
-                                        <th class="seat">1</th>
-                                        <th class="seat">2</th>
-                                        <th class="seat">3</th>
-                                        <th class="seat">4</th>
-                                        <th class="seat">5</th>
-                                        <th class="seat">6</th>
-                                        <th class="seat">7</th>
-                                        <th class="seat">8</th>
-                                        <th class="seat">9</th>
-                                        <th class="seat">10</th>
+                                        <th id="A1" class="seat">1</th>
+                                        <th id="A2" class="seat">2</th>
+                                        <th id="A3" class="seat">3</th>
+                                        <th id="A4" class="seat">4</th>
+                                        <th id="A5" class="seat">5</th>
+                                        <th id="A6" class="seat">6</th>
+                                        <th id="A7" class="seat">7</th>
+                                        <th id="A8" class="seat">8</th>
+                                        <th id="A9" class="seat">9</th>
+                                        <th id="A10" class="seat">10</th>
                                     </tr>
                                     <tr>
-                                        <th class="seat">1</th>
-                                        <th class="seat">2</th>
-                                        <th class="seat">3</th>
-                                        <th class="seat">4</th>
-                                        <th class="seat occupied">5</th>
-                                        <th class="seat occupied">6</th>
-                                        <th class="seat">7</th>
-                                        <th class="seat occupied">8</th>
-                                        <th class="seat">9</th>
-                                        <th class="seat">10</th>
+                                        <th id="B1" class="seat">1</th>
+                                        <th id="B2" class="seat">2</th>
+                                        <th id="B3" class="seat">3</th>
+                                        <th id="B4" class="seat">4</th>
+                                        <th id="B5" class="seat occupied">5</th>
+                                        <th id="B6" class="seat occupied">6</th>
+                                        <th id="B7" class="seat">7</th>
+                                        <th id="B8" class="seat occupied">8</th>
+                                        <th id="B9" class="seat">9</th>
+                                        <th id="B10" class="seat">10</th>
                                     </tr>
                                     <tr>
-                                        <th class="seat">1</th>
-                                        <th class="seat">2</th>
-                                        <th class="seat occupied">3</th>
-                                        <th class="seat occupied">4</th>
-                                        <th class="seat">5</th>
-                                        <th class="seat">6</th>
-                                        <th class="seat occupied">7</th>
-                                        <th class="seat occupied">8</th>
-                                        <th class="seat">9</th>
-                                        <th class="seat">10</th>
+                                        <th id="C1" class="seat">1</th>
+                                        <th id="C2" class="seat">2</th>
+                                        <th id="C3" class="seat occupied">3</th>
+                                        <th id="C4" class="seat occupied">4</th>
+                                        <th id="C5" class="seat">5</th>
+                                        <th id="C6" class="seat">6</th>
+                                        <th id="C7" class="seat occupied">7</th>
+                                        <th id="C8" class="seat occupied">8</th>
+                                        <th id="C9" class="seat">9</th>
+                                        <th id="C10" class="seat">10</th>
                                     </tr>
                                     <tr>
-                                        <th class="seat">1</th>
-                                        <th class="seat">2</th>
-                                        <th class="seat occupied">3</th>
-                                        <th class="seat occupied">4</th>
-                                        <th class="seat">5</th>
-                                        <th class="seat occupied">6</th>
-                                        <th class="seat occupied">7</th>
-                                        <th class="seat">8</th>
-                                        <th class="seat">9</th>
-                                        <th class="seat">10</th>
+                                        <th id="D1" class="seat">1</th>
+                                        <th id="D2" class="seat">2</th>
+                                        <th id="D3" class="seat occupied">3</th>
+                                        <th id="D4" class="seat occupied">4</th>
+                                        <th id="D5" class="seat">5</th>
+                                        <th id="D6" class="seat occupied">6</th>
+                                        <th id="D7" class="seat occupied">7</th>
+                                        <th id="D8" class="seat">8</th>
+                                        <th id="D9" class="seat">9</th>
+                                        <th id="D10" class="seat">10</th>
                                     </tr>
                                     <tr>
-                                        <th class="seat">1</th>
-                                        <th class="seat">2</th>
-                                        <th class="seat">3</th>
-                                        <th class="seat vip">4</th>
-                                        <th class="seat vip">5</th>
-                                        <th class="seat vip">6</th>
-                                        <th class="seat vip">7</th>
-                                        <th class="seat">8</th>
-                                        <th class="seat">9</th>
-                                        <th class="seat">10</th>
+                                        <th id="E1" class="seat">1</th>
+                                        <th id="E2" class="seat">2</th>
+                                        <th id="E3" class="seat">3</th>
+                                        <th id="E4" class="seat vip">4</th>
+                                        <th id="E5" class="seat vip">5</th>
+                                        <th id="E6" class="seat vip">6</th>
+                                        <th id="E7" class="seat vip">7</th>
+                                        <th id="E8" class="seat">8</th>
+                                        <th id="E9" class="seat">9</th>
+                                        <th id="E10" class="seat">10</th>
                                     </tr>
                                     <tr>
-                                        <th class="seat">1</th>
-                                        <th class="seat">2</th>
-                                        <th class="seat vip">3</th>
-                                        <th class="seat vip">4</th>
-                                        <th class="seat vip">5</th>
-                                        <th class="seat occupied">6</th>
-                                        <th class="seat occupied">7</th>
-                                        <th class="seat vip">8</th>
-                                        <th class="seat">9</th>
-                                        <th class="seat">10</th>
+                                        <th id="F1" class="seat">1</th>
+                                        <th id="F2" class="seat">2</th>
+                                        <th id="F3" class="seat vip">3</th>
+                                        <th id="F4" class="seat vip">4</th>
+                                        <th id="F5" class="seat vip">5</th>
+                                        <th id="F6" class="seat occupied">6</th>
+                                        <th id="F7" class="seat occupied">7</th>
+                                        <th id="F8" class="seat vip">8</th>
+                                        <th id="F9" class="seat">9</th>
+                                        <th id="F0" class="seat">10</th>
                                     </tr>
                                     <tr>
-                                        <th class="seat">1</th>
-                                        <th class="seat">2</th>
-                                        <th class="seat vip">3</th>
-                                        <th class="seat vip">4</th>
-                                        <th class="seat occupied">5</th>
-                                        <th class="seat occupied">6</th>
-                                        <th class="seat vip">7</th>
-                                        <th class="seat vip">8</th>
-                                        <th class="seat">9</th>
-                                        <th class="seat">10</th>
+                                        <th id="G1" class="seat">1</th>
+                                        <th id="G2" class="seat">2</th>
+                                        <th id="G3" class="seat vip">3</th>
+                                        <th id="G4" class="seat vip">4</th>
+                                        <th id="G5" class="seat occupied">5</th>
+                                        <th id="G6" class="seat occupied">6</th>
+                                        <th id="G7" class="seat vip">7</th>
+                                        <th id="G8" class="seat vip">8</th>
+                                        <th id="G9" class="seat">9</th>
+                                        <th id="G10" class="seat">10</th>
                                     </tr>
                                     <tr>
-                                        <th class="seat">1</th>
-                                        <th class="seat">2</th>
-                                        <th class="seat">3</th>
-                                        <th class="seat vip">4</th>
-                                        <th class="seat occupied">5</th>
-                                        <th class="seat occupied">6</th>
-                                        <th class="seat vip">7</th>
-                                        <th class="seat">8</th>
-                                        <th class="seat">9</th>
-                                        <th class="seat">10</th>
+                                        <th id="H1" class="seat">1</th>
+                                        <th id="H2" class="seat">2</th>
+                                        <th id="H3" class="seat">3</th>
+                                        <th id="H4" class="seat vip">4</th>
+                                        <th id="H5" class="seat occupied">5</th>
+                                        <th id="H6" class="seat occupied">6</th>
+                                        <th id="H7" class="seat vip">7</th>
+                                        <th id="H8" class="seat">8</th>
+                                        <th id="H9" class="seat">9</th>
+                                        <th id="H10" class="seat">10</th>
                                     </tr>
                                     <tr>
-                                        <th class="seat">1</th>
-                                        <th class="seat">2</th>
-                                        <th class="seat">3</th>
-                                        <th class="seat">4</th>
-                                        <th class="seat occupied">5</th>
-                                        <th class="seat occupied">6</th>
-                                        <th class="seat">7</th>
-                                        <th class="seat">8</th>
-                                        <th class="seat">9</th>
-                                        <th class="seat">10</th>
+                                        <th id="I1" class="seat">1</th>
+                                        <th id="I2" class="seat">2</th>
+                                        <th id="I3" class="seat">3</th>
+                                        <th id="I4" class="seat">4</th>
+                                        <th id="I5" class="seat occupied">5</th>
+                                        <th id="I6" class="seat occupied">6</th>
+                                        <th id="I7" class="seat">7</th>
+                                        <th id="I8" class="seat">8</th>
+                                        <th id="I9" class="seat">9</th>
+                                        <th id="I10" class="seat">10</th>
                                     </tr>
                                     <tr>
-                                        <th class="seat">1</th>
-                                        <th class="seat">2</th>
-                                        <th class="seat">3</th>
-                                        <th class="seat occupied">4</th>
-                                        <th class="seat occupied">5</th>
-                                        <th class="seat">6</th>
-                                        <th class="seat">7</th>
-                                        <th class="seat">8</th>
-                                        <th class="seat">9</th>
-                                        <th class="seat">10</th>
+                                        <th id="J1" class="seat">1</th>
+                                        <th id="J2" class="seat">2</th>
+                                        <th id="J3" class="seat">3</th>
+                                        <th id="J4" class="seat occupied">4</th>
+                                        <th id="J5" class="seat occupied">5</th>
+                                        <th id="J6" class="seat">6</th>
+                                        <th id="J7" class="seat">7</th>
+                                        <th id="J8" class="seat">8</th>
+                                        <th id="J9" class="seat">9</th>
+                                        <th id="J10" class="seat">10</th>
                                     </tr>
                                 </table>
                                 <table class="seatname-right">
@@ -323,47 +324,7 @@
             </div>
         </div>
         
-        <div class="confirm-screen">
-            <h2>Thông tin của vé</h2>
-            <div class="confirm-screen-wrapper">
-                <div class="user-info">
-                    <div class="info">
-                        <h3>Tên Người Dùng: </h3>
-                        <div>dwfedgrfhtyjjkeryfety</div>
-                    </div>
-                    <div class="info">
-                        <h3>Tên Phim: </h3>
-                        <div>dwfedgrfhtyjjkeryfety</div>
-                    </div>
-                    <div class="info">
-                        <h3>Ngày Chiếu: </h3>
-                        <div>dwfedgrfhtyjjkeryfety</div>
-                    </div>
-                    <div class="info">
-                        <h3>Title day hehe: </h3>
-                        <div>dwfedgrfhtyjjkeryfety</div>
-                    </div>
-                </div>
-                <div class="ticket-info">
-                    <div class="item">
-                        <h3>heheeheh</h3>
-                        <div class="content">hjhjhhgj</div>
-                    </div>
-                    <div class="item">
-                        <h3>heheeheh</h3>
-                        <div class="content">fgthyjkl</div>
-                    </div>
-                    <div class="item">
-                        <h3>heheeheh</h3>
-                        <div class="content">jbnubuib</div>
-                    </div>
-                    <div class="item">
-                        <h3>heheeheh</h3>
-                        <div class="content"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </div>
     
 

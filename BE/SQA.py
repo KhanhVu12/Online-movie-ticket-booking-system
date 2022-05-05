@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request, make_response
 from flask_mysqldb import MySQL
 from flask_cors import CORS, cross_origin
+import re
 import logging
 
 app = Flask(__name__)
@@ -24,10 +25,11 @@ mysql = MySQL(app)
 @app.route('/login',methods =['POST'])
 def login():
     form = request.form
-    name = form['name']
+    email = form['email']
     pw = form['password']
     cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM user WHERE userName = %s and userPassword = %s", (name, pw))
+    print(pw)
+    cur.execute("SELECT * FROM user WHERE BINARY userEmail = %s and BINARY userPassword = %s", (email, pw))
     user = cur.fetchone()
 # check if user.roleId == 1
     if user is not None:
@@ -39,6 +41,34 @@ def login():
         mysql.connection.commit()
         cur.close()
         message = {'message':'can\'t find this user!'}
+        return message,404
+
+#signup
+@app.route('/signup', methods=['POST'])
+def signup():
+    form = request.form
+    name = form['name']
+    pw = form['password']
+    age = form['age']
+    email = form['email']
+    address = form['address']
+    phoneNumber = form['phoneNumber']
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM user WHERE BINARY userEmail = %s", [email])
+    existedUser = cur.fetchone()
+    if not (re.match("([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+", email)):
+        return {'message':'Invalid email!'}
+    elif len(pw)<3:
+        message = {'message':'Pasword must be longer than 3 characters!'}
+        return message
+    elif existedUser is not None:
+        message = {'message':'This email address is used!'}
+        return message
+    else:    
+        cur.execute("INSERT INTO user(userName, userPassword, roleId, userAge, userEmail, userAddress, phoneNumber) VALUES (%s, %s, 2, %s, %s, %s, %s)", (name, pw, age, email, address, phoneNumber))
+        mysql.connection.commit()
+        cur.close()
+        message = {'message':'Added successfully!'}
         return message
 
 #search movies by title, director, actors or genre
@@ -331,23 +361,6 @@ def userList():
     users = cur.fetchall()
     return jsonify({"users": users})
 
-#add user
-@app.route('/user/add', methods=['POST'])
-def addUser():
-    form = request.form
-    userName = form['userName']
-    userPassword = form['userPassword']
-    userAge = form['userAge']
-    userEmail = form['userEmail']
-    userAddress = form['userAddress']
-    phoneNumber = form['phoneNumber']
-    cur = mysql.connection.cursor()
-    cur.execute("INSERT INTO user (userName, userPassword, roleId, userAge, userEmail, userAddress, phoneNumber) VALUES(%s, %s, 1, %s, %s, %s, %s)",(userName, userPassword, userAge, userEmail, userAddress, phoneNumber))
-    mysql.connection.commit()
-    cur.close()
-    message="Added successfully!"
-    return message
-
 #edit user
 @app.route('/user/edit', methods=['PUT'])
 def editUser():
@@ -379,11 +392,10 @@ def deleteUser():
     return message
 
 #list all taken seats by showTimeId
-@app.route('/ticket', methods=['GET'])
-def listTakenSeats():
-    showTimeId = int(request.args['showTimeId'])
+@app.route('/ticket/<id>', methods=['GET'])
+def listTakenSeats(id):
     cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM bookedSeat WHERE showTimeId = %s", [showTimeId])
+    cur.execute("SELECT * FROM bookedSeat WHERE showTimeId = %s", [id])
     tickets = cur.fetchall()
     return jsonify({"tickets":tickets})
 
