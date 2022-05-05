@@ -5,7 +5,11 @@ const count = document.querySelector(".counter");
 const confirmBtn = document.querySelector(".confirm");
 const movieId = localStorage.getItem("movieId");
 const user = JSON.parse(localStorage.getItem("user"));
+const calenderDate = document.querySelectorAll(".calender-date");
+const showTime = document.querySelectorAll(".show-time")
 const url = "http://localhost:5000";
+let showTimeId = 1;
+
 let submitData = {
   //   userid: user.id,
   //   showtimeid: null,
@@ -24,6 +28,23 @@ let submitData = {
     // },
   ],
 };
+
+calenderDate.forEach((item) => {
+  item.addEventListener("click", (e) => {
+     calenderDate.forEach((item) => item.classList.remove("active"));
+     e.currentTarget.classList.add("active");
+  });
+});
+
+showTime.forEach((item) => {
+  item.addEventListener("click", (e) => {
+    showTime.forEach((item) => item.classList.remove("active"));
+    e.currentTarget.classList.add("active");
+    showTimeId = item.id;
+  });
+});
+
+console.log(showTimeId)
 
 const getFoods = () => {
   fetch(`${url}/food`)
@@ -81,10 +102,8 @@ const getMovies = (url) => {
     });
 };
 
-const handleSubmit = () => {
-  const selectingTickets = document.querySelectorAll(
-    ".seat-container .selected"
-  );
+const nextToFoodSelect = () => {
+  const selectingTickets = document.querySelectorAll(".seat-container .selected");
   selectingTickets.forEach((item) => {
     submitData.seats.push({
       name: item.id,
@@ -96,11 +115,19 @@ const handleSubmit = () => {
 window.onload = async () => {
   await getMovies(url);
   await getFoods();
+  await getBookedSeats();
 };
 
+const getBookedSeats = async () =>{
+  const promise = await fetch(`${url}/ticket/${showTimeId}`);
+  const res = await promise.json()
+    console.log(res.tickets)
+} 
+
 confirmBtn.addEventListener("click", () => {
-  handleSubmit();
+  nextToFoodSelect();
   renderFoodList();
+  console.log(submitData);
   window.scrollTo(0, 1050);
 });
 
@@ -127,10 +154,56 @@ const renderFoodList = () => {
      )
      .join("")}
  </div>
- <button class="confirm"> Xác Nhận </button>
+ <button class="food-confirm" onclick="renderTicketInfo()"> Xác Nhận </button>
      </div>
  `;
 };
+
+const renderTicketInfo = () => {
+  bookingCenter.innerHTML = `
+  <div class="confirm-screen">
+            <h2>Thông tin của vé</h2>
+            <div class="confirm-screen-wrapper">
+                <div class="user-info">
+                    <div class="info">
+                        <h3>Tên Người Dùng: </h3>
+                        <div>dwfedgrfhtyjjkeryfety</div>
+                    </div>
+                    <div class="info">
+                        <h3>Tên Phim: </h3>
+                        <div>dwfedgrfhtyjjkeryfety</div>
+                    </div>
+                    <div class="info">
+                        <h3>Ngày Chiếu: </h3>
+                        <div>dwfedgrfhtyjjkeryfety</div>
+                    </div>
+                    <div class="info">
+                        <h3>Title day hehe: </h3>
+                        <div>dwfedgrfhtyjjkeryfety</div>
+                    </div>
+                </div>
+                <div class="ticket-info">
+                    <div class="item">
+                        <h3>heheeheh</h3>
+                        <div class="content">hjhjhhgj</div>
+                    </div>
+                    <div class="item">
+                        <h3>heheeheh</h3>
+                        <div class="content">fgthyjkl</div>
+                    </div>
+                    <div class="item">
+                        <h3>heheeheh</h3>
+                        <div class="content">jbnubuib</div>
+                    </div>
+                    <div class="item">
+                        <h3>heheeheh</h3>
+                        <div class="content"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  `;
+}
 
 function decreaseClick(id) {
   const label = document.querySelector(`.counter-label-${id}`);
