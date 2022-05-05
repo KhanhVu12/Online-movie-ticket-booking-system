@@ -8,7 +8,7 @@ create table bookedSeat(seatId int auto_increment primary key, seatName varchar(
 create table movie(movieId int auto_increment primary key, title varchar(100) not null, genre varchar(100), image text not null, trailerLink text not null, description text not null, length int not null, origin varchar(30), releasedDate date not null, director varchar(60), actors text);
 create table showTime(showTimeId int auto_increment primary key, movieId int, startTime datetime not null, roomId int not null, foreign key(movieId) references movie(movieId));
 create table ticket(userId int, seatId int, showTimeId int, foreign key(userId) references user(userId), foreign key(seatID)references bookedSeat(seatId), foreign key(showTimeId) references showTime(showTimeId));
-create table food(foodId int auto_increment primary key, foodName varchar(30) not null, foodPrice int not null);
+create table food(foodId int auto_increment primary key, foodName varchar(30) not null, foodImage text, foodPrice int not null);
 create table foodOrder(foodId int, userId int,amount int, foreign key(foodId)references food(foodId), foreign key(userId)references user(userId));
 create table orderBill(userId int, orderDate DateTime, totalPrice int not null, paymentType varchar(20));
 
@@ -25,7 +25,7 @@ insert into user(userName, userPassword, roleId, userAge, userEmail, userAddress
 
 insert into seatType(seatTypeName, seatTypeAmount, price) values ('normal', '80', '100000'), ('vip', '20', '120000');
 
-insert into food(foodName, foodPrice) values ('popcorn', 50000), ('coca', 30000), ('pepsi', 30000),('snack', 10000);
+insert into food(foodName, foodImage,foodPrice) values ('popcorn', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ48HWW6R6Z8NfU7_pimnhzZpdSEWzkSbo1ZA&usqp=CAU', 50000), ('coca', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDhenlLq6nGz0a8z0dgMWc_MgdKX9iMH52gQ&usqp=CAU',30000), ('pepsi', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuE3lmhw3TBuWvmpELU97YPx6O5_81H8OUGA&usqp=CAU',30000),('snack', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVlIGlfeurCQb5KER-vlvmToi6iaiCci0-7g&usqp=CAU',10000);
 
 insert into movie(title, genre, image, trailerLink, description, length, origin, releasedDate, director, actors) values 
 	('TURNING RED: GẤU ĐỎ BIẾN HÌNH - P', 'Hoạt hình', 'https://chieuphimquocgia.com.vn/Content/Images/0016408_0.jpeg', 'https://www.youtube.com/watch?v=XdKzUbAiswE&t=17s', '\'Turning Red - Gấu Đỏ Biến Hình\' từ Disney và Pixar kể về Mei Lee, cô bé 13 tuổi tự tin và ngổ ngáo với những sự hỗn loạn của tuổi mới lớn. Mẹ của Mei luôn cố gắng bảo bọc và ở bên cạnh con gái mọi lúc mọi nơi, khiến cô bé cảm thấy như một thảm hoạ vậy. Và cứ như thể những thay đổi về sở thích, các mối quan hệ và thể chất còn chưa đủ, mỗi khi Mei trở nên quá phấn khích (mà thật ra lúc nào cũng vậy), \'bùm\', cô bé sẽ biến hình thành một chú gấu đỏ siêu cute khổng lồ luôn!', 90, 'Mỹ', '2022/03/11', 'Domee Shi', 'Rosalie Chiang, Sandra Oh, James Hong'), 
@@ -52,7 +52,7 @@ insert into bookedSeat(seatName, seatTypeId, showTimeId) values
 																 ('I1', 1, 1),('I2', 1, 1),('I3', 1, 1),('I4', 1, 1),('I6', 1, 1),('I7', 1, 1),('I8', 1, 1),('I9', 1, 1),('I10', 1, 1),('J1', 1, 1),('J2', 1, 1),('J3', 1, 1),('J4', 1, 1),('J5', 1, 1),('J6', 1, 1),('J7', 1, 2),('J8', 1, 2),('J9', 1, 1),('J10', 1, 1),
 																 ('G1', 1, 2),('G2', 1, 2),('G3', 1, 3),('G5', 1, 3),('G10', 1, 3),('A7', 1, 2),('G8', 1, 4),('G9', 1, 4),('G1', 1, 5),('H3', 1, 5),('H2', 1, 2),('H3', 1, 2),('H4', 1, 4),('H5', 1, 3),('H6', 1, 3),('H7', 1, 5),('H8', 1, 5),('H9', 1, 5),('H10', 1, 5),
 																 ('I1', 1, 6),('I2', 1, 2),('I3', 1, 2),('I4', 1, 6),('I6', 1, 6),('I7', 1, 6),('I8', 1, 5),('I9', 1, 3),('I10', 1, 4),('J1', 1, 5),('J2', 1, 1),('J3', 1, 1),('J4', 1, 1),('J5', 1, 1),('J6', 1, 1),('J7', 1, 2),('J8', 1, 2),('J9', 1, 1),('J10', 1, 1);
-
+																 
 insert into showtime(movieId, startTime, roomId) values 
 ('1', '2022-04-15 09:00:00', '1'),
 ('2', '2022-04-15 11:30:00', '1'),
