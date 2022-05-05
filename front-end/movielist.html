@@ -66,41 +66,35 @@
             </a>
         </li>
         <li class="sub-menu">
-            <a href="javascript:;">
+            <a href="movielist.html">
                 <i class="fa fa-film"></i>
                 <span>Phim</span>
             </a>
         </li>
         
         <li class="sub-menu">
-            <a href="javascript:;">
+            <a href="showtiming.html">
                 <i class="fa fa-clock-o"></i>
                 <span>Thời Gian Chiếu</span>
             </a>
         </li>
 
         <li class="sub-menu">
-            <a href="javascript:;">
+            <a href="manageuser.html">
                 <i class="fa fa-address-book-o"></i>
                 <span>Quản Lí Tài Khoản</span>
             </a>
         </li>
 
         <li class="sub-menu">
-            <a href="javascript:;">
-            
-                <i class="fa fa-ticket"></i>
-                <span>Báo Cáo Doang Thu </span>
-            </a>
-            <ul class="drop">
-                <li class="submenu"><a href="javascript:;">1 Tháng gần đây</a></li>
-                <li class="submenu"><a href="javascript:;">7 Ngày gần đây</a></li>
-                <li class="submenu"><a href="javascript:;">Trong ngày</a></li>
-            </ul>
-        </li>
+          <a href="salereport.html">
+              <i class="fa fa-ticket"></i>
+              <span>Báo Cáo Doanh Thu </span>
+          </a>
+      </li>
       </ul>
     </div>
-
+    
         <!--Movie List-->
         <div class="container">
             <div class="signup-contain">
@@ -116,15 +110,14 @@
                                     <td class="name"><b>TÊN PHIM</b></td>
                                     <td><b>THỜI LƯỢNG</b></td>
                                     <td><b>THỂ LOẠI</b></td>
-                                    <td><b>TRAILER</b></td>
                                     <td><b>HÌNH ẢNH</b></td>
                                     <td><b>QUẢN LÍ</b></td>
                                 </tr>
                                 
                             </thead>
                             
-                            <tbody>
-                                <tr>
+                            <tbody class="movie-list">
+                                <!-- <tr>
                                     <td class="name">The BatMan</td>
                                     <td>90 phút</td>
                                     <td>Hành Động</td>
@@ -192,7 +185,7 @@
                                         <button class="btn-pencil"><i class="fa fa-pencil"></i></button>
                                         <button class="btn-trash"><i class="fa fa-trash-o"></i></button>
                                     </td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                         </table>
                     </div>
@@ -205,5 +198,6 @@
         </div>
 
     <script src="scripts/btnMenu.js"></script>
+    <script src="scripts/manageMovielist.js"></script>
   </body>
 </html>
