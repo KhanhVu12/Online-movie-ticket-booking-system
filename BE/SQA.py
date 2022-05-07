@@ -10,7 +10,7 @@ cors = CORS(app)
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'Myduyen2602.'
+app.config['MYSQL_PASSWORD'] = '123456789'
 app.config['MYSQL_DB'] = 'sqaProject'
 
 mysql = MySQL(app)
@@ -152,7 +152,8 @@ def addMovie():
 #edit movie
 @app.route('/movies/edit', methods=['PUT'])
 def editMovie():
-    form = request.form
+    form = request.json
+    # form = movie['movie']
     movieId = form['movieId']
     title = form['title']
     genre = form['genre']
