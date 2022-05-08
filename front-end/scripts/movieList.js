@@ -1,8 +1,8 @@
 const movieList = document.querySelectorAll(".movie-list");
 
-const url = "http://localhost:5000/movies";
+const url = "http://localhost:5000/";
 const getMovies = (url) => {
-  fetch(url)
+  fetch(`${url}/movies`)
     .then((result) => result.json())
     .then((data) => {
       showMovies(data);

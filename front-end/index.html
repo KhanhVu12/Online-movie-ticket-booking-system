@@ -48,11 +48,15 @@
     </nav>
     <div class="login-form">
       <ul class="login-list">
-        <li>
-          <input id="email" type="text" class="txt" placeholder="Nhập Email" />
-        </li>
-        <li><input id="password" type="password" class="txt" placeholder="Mật Khẩu" /></li>
+        <form id="form-login">
+            <li>
+                <input id="email" name="email" type="text" class="txt" placeholder="Nhập Email" />
+            </li>
+            
+            <li><input id="password" name="password" type="password" class="txt" placeholder="Mật Khẩu" /></li>
+        </form>
       </ul>
+      <p class="error"></p>
       <button class="login">Đăng Nhập</button>
       <button class="register" onclick="location.href='registration.html'">Đăng Kí</button>
     </div>
@@ -125,7 +129,7 @@
       </div>
     </footer>
     <script src="scripts/btnMenu.js"></script>
-    <script src="scripts/btnLogin.js"></script>
+    <script src="scripts/auth.js"></script>
     <script src="scripts/slider.js"></script>
     <script src="scripts/movieList.js"></script>
   </body>

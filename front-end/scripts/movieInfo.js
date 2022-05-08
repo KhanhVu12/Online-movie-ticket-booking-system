@@ -1,32 +1,21 @@
 let foods;
+let user;
+let movie;
 const container = document.querySelector(".container");
 const bookingCenter = document.querySelector(".booking-center");
 const count = document.querySelector(".counter");
 const confirmBtn = document.querySelector(".confirm");
 const movieId = localStorage.getItem("movieId");
-const user = JSON.parse(localStorage.getItem("user"));
 const calenderDate = document.querySelectorAll(".calender-date");
 const showTime = document.querySelectorAll(".show-time");
 const url = "http://localhost:5000";
+const showTimeId = 1;
 
 let submitData = {
-  userId: JSON.parse(localStorage.getItem("user")).userId,
-  //   showtimeid: null,
-  foods: [
-    // {
-    //   id: null,
-    //   amount: 0,
-    // },
-  ],
-  showTimeId: null,
-  seats: [
-    // {
-    //   id: null,
-    //   name: null,
-    //   typeId: null,
-    //   showtimeid: null,
-    // },
-  ],
+  foods: [],
+  showTimeId: 1,
+  seats: [],
+  total: 0,
 };
 
 calenderDate.forEach((item) => {
@@ -47,11 +36,21 @@ showTime.forEach((item) => {
 const getFoods = () => {
   fetch(`${url}/food`)
     .then((data) => data.json())
-    .then((data) => (foods = data.foods));
+    .then((data) => {
+      foods = data.foods;
+    });
 };
 
-const showMovies = (data) => {
-  const movie = data.movies[0];
+const dateString = (d, format) => {
+  const date = new Date(d);
+  return format === "date"
+    ? `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
+    : `${date.getHours() < 10 ? `0${date.getHours()}` : date.getHours()}:${
+        date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()
+      }`;
+};
+
+const showMovies = () => {
   const title = movie[1];
   const genre = movie[2];
   const image = movie[3];
@@ -86,7 +85,6 @@ const showMovies = (data) => {
                     </div>
             
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/${trailer}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    
                 </div>
             </div>`;
   container.prepend(movieInfo);
@@ -96,7 +94,8 @@ const getMovies = (url) => {
   fetch(`${url}/movies/${movieId}`)
     .then((result) => result.json())
     .then((data) => {
-      showMovies(data);
+      movie = data.movies[0];
+      showMovies();
     });
 };
 
@@ -161,56 +160,81 @@ const renderFoodList = () => {
      )
      .join("")}
  </div>
- <button class="food-confirm" onclick="renderTicketInfo()"> Xác Nhận </button>
+ <button class="food-confirm" onclick="redirectTicketInfo()"> Xác Nhận </button>
      </div>
  `;
 };
 
-const renderTicketInfo = () => {
+const redirectTicketInfo = () => {
+  user = JSON.parse(localStorage.getItem("user"));
+  if (!user.userId) {
+    window.alert("Đăng nhập đê bạn êi");
+    return;
+  }
+  submitData.userId = user.userId;
+
+  console.log(submitData);
+
   bookingCenter.innerHTML = `
   <div class="confirm-screen">
             <h2>Thông tin của vé</h2>
             <div class="confirm-screen-wrapper">
                 <div class="user-info">
                     <div class="info">
-                        <h3>Tên Người Dùng: </h3>
-                        <div>dwfedgrfhtyjjkeryfety</div>
+                        <h3>Tên Quý Khách: </h3>
+                        <div>${user.userName}</div>
                     </div>
                     <div class="info">
                         <h3>Tên Phim: </h3>
-                        <div>dwfedgrfhtyjjkeryfety</div>
+                        <div>${movie[1]}</div>
                     </div>
                     <div class="info">
                         <h3>Ngày Chiếu: </h3>
-                        <div>dwfedgrfhtyjjkeryfety</div>
+                        <div>${dateString(movie[8], "date")}</div>
                     </div>
                     <div class="info">
-                        <h3>Title day hehe: </h3>
-                        <div>dwfedgrfhtyjjkeryfety</div>
+                        <h3>Giờ Chiếu: </h3>
+                        <div>${dateString(movie[8], "time")}</div>
                     </div>
                 </div>
                 <div class="ticket-info">
                     <div class="item">
-                        <h3>heheeheh</h3>
-                        <div class="content">hjhjhhgj</div>
+                        <h3>Ghế Ngồi: </h3>
+                        <div class="content">${submitData.seats.map(
+                          (seat) => `<span> ${seat.name}</span>`
+                        )}</div>
                     </div>
                     <div class="item">
-                        <h3>heheeheh</h3>
-                        <div class="content">fgthyjkl</div>
+                        <h3>Đồ Ăn & Nước Uống: </h3>
+                        <div class="content">${submitData.foods.map(
+                          (food) => `<span> ${food.name} x${food.amount}</span>`
+                        )}</div>
                     </div>
                     <div class="item">
-                        <h3>heheeheh</h3>
-                        <div class="content">jbnubuib</div>
+                        <h3>Số Vé: </h3>
+                        <div class="content">${submitData.seats.length}</div>
                     </div>
                     <div class="item">
-                        <h3>heheeheh</h3>
-                        <div class="content"></div>
+                        <h3>Tổng Giá:</h3>
+                        <div class="content">${submitData.total}</div>
                     </div>
                 </div>
             </div>
+            <div>
+            
+    <button class="ticket-confirm" onclick="handleSubmit()"> Xác Nhận </button>
+     </div>
         </div>
   `;
 };
+
+const handleSubmit = () => {
+  fetch(`${url}/bill/add`,{
+    method: "POST",
+    body: JSON.stringify(submitData)
+  })
+  window.location.href = "index.html"
+}
 
 function decreaseClick(id, price) {
   let priceLable = document.querySelector(`.price-${id}`);
@@ -220,7 +244,7 @@ function decreaseClick(id, price) {
   let total = (+value - 1) * price;
   label.innerHTML = --value;
   priceLable.textContent = value == 1 ? price : total;
-
+  submitData.total -= price;
   //Pop food from submitData
   const currentFood = submitData.foods.find((food) => food.id == id);
   const filterFoods = submitData.foods.filter((food) => food.id != id);
@@ -240,12 +264,15 @@ function incrementClick(id, price) {
   let total = (+value + 1) * price;
   label.innerHTML = ++value;
   priceLable.textContent = total;
+  submitData.total += price;
 
   //Add food to submitData
-  const currentFood = submitData.foods.find((food) => food.id == id);
-  if (currentFood) {
+  const existingFood = submitData.foods.find((food) => food.id == id);
+  const currentFood = foods.find((food) => food[0] == id);
+
+  if (existingFood) {
     submitData.foods
       .filter((food) => food.id != id)
-      .push({ id: id, amount: ++currentFood.amount });
-  } else submitData.foods.push({ id: id, amount: 1 });
+      .push({ id: id, name: currentFood[1], amount: ++existingFood.amount });
+  } else submitData.foods.push({ id: id, name: currentFood[1], amount: 1 });
 }

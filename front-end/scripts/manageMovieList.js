@@ -19,7 +19,7 @@ function showMovies() {
       const image = movie[3];
       const trailer = movie[4].substring(32);
       const desc = movie[5];
-      const length = movie[6]
+      const length = movie[6];
       const origin = movie[7];
       const releasedDate = movie[8];
       const director = movie[9];
@@ -47,15 +47,16 @@ function showMovies() {
       document.querySelector(".movie-list").appendChild(movieListItem);
     });
 
-    const editContainer = document.querySelectorAll(".movie-list-item")
+    const editContainer = document.querySelectorAll(".movie-list-item");
     for (let i = 0; i < editContainer.length; i++) {
-      const editBtn = editContainer[i].querySelector(".btn-pencil")
+      const editBtn = editContainer[i].querySelector(".btn-pencil");
       const id = editContainer[i].querySelector(".id").value;
       editBtn.addEventListener("click", () => {
         const container = document.querySelector(".container");
         const movieContainer = document.querySelector(".signup-contain");
-        movieContainer.classList.toggle("hidden")
-        const url = "http://localhost:5000/movies/" + id.substring(0, id.length - 1);
+        movieContainer.classList.toggle("hidden");
+        const url =
+          "http://localhost:5000/movies/" + id.substring(0, id.length - 1);
         const getMovies = (url) => {
           fetch(url)
             .then((result) => result.json())
@@ -75,9 +76,11 @@ function showMovies() {
             const image = movie[3];
             const trailer = movie[4];
             const desc = movie[5];
-            const length = movie[6]
+            const length = movie[6];
             const origin = movie[7];
-            const releasedDate = new Date(movie[8]).toISOString().substring(0,10);
+            const releasedDate = new Date(movie[8])
+              .toISOString()
+              .substring(0, 10);
             const director = movie[9];
             const actors = movie[10];
             const movieInfoItem = document.createElement("div");
@@ -232,11 +235,11 @@ function showMovies() {
             </form>
                   `;
             container.appendChild(movieInfoItem);
-          })
-        }
-      })
+          });
+        };
+      });
     }
-  }
+  };
 }
 const editMovieInfo = () => {
   const id = document.querySelector("#id").value;
@@ -251,33 +254,35 @@ const editMovieInfo = () => {
   const director = document.querySelector("#director").value;
   const actors = document.querySelector("#actors").value;
   const movie = {
-    'movieId': id,
-    'title': title,
-    'genre': genre,
-    'image': image,
-    'trailerLink': trailer,
-    'description': desc,
-    'length': length,
-    'origin': origin,
-    'releasedDate': releasedDate,
-    'director': director,
-    'actors': actors
-  }
-  fetch('http://127.0.0.1:5500/movies/edit', {
-    method: 'PUT',
-    headers: { 'content-type': 'application/json' },
-    body: JSON.stringify(movie)
+    movieId: id,
+    title: title,
+    genre: genre,
+    image: image,
+    trailerLink: trailer,
+    description: desc,
+    length: length,
+    origin: origin,
+    releasedDate: releasedDate,
+    director: director,
+    actors: actors,
+  };
+  fetch("http://127.0.0.1:5500/movies/edit", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(movie),
   })
-    .then(response => response.json())
-    .then(data => console.log(data))
+    .then((response) => response.json())
+    .then((data) => console.log(data));
   const movieInfoItem = document.querySelectorAll("tr");
   for (const movieItem of movieInfoItem) {
-    movieItem.classList.toggle("hidden")
+    movieItem.classList.toggle("hidden");
   }
-  document.querySelector(".signup-contain").classList.toggle(".signup-contain")
-  showMovies()
-}
-showMovies()
+  document.querySelector(".signup-contain").classList.toggle(".signup-contain");
+  showMovies();
+};
+showMovies();
 // document.querySelector(".btn").addEventListener("click", editMovieInfo)
 //         });
 //       };
@@ -286,5 +291,3 @@ showMovies()
 //   }
 
 // };
-
-

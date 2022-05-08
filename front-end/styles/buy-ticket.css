@@ -305,7 +305,6 @@ p.noti-text span {
   border-bottom: 2px solid #608a2e;
   padding: 15px 15px;
   width: 85%;
-  
 }
 
 .card {
@@ -380,30 +379,35 @@ p.noti-text span {
   transition: all 0.3s ease-in-out;
 }
 
-.confirm-screen{
-  min-height: 750px;
+.confirm-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  min-height: 650px;
 }
 
 .confirm-screen h2 {
   font-size: 25px;
   text-align: center;
   text-transform: uppercase;
-  margin: 0 auto;
   border-bottom: 2px solid #608a2e;
   padding: 15px 15px;
   width: 75%;
-  margin-bottom: 50px;
 }
 
-.confirm-screen-wrapper{
+.confirm-screen-wrapper {
   background-color: #777;
-  max-width: 970px;
+  max-width: 900px;
   display: flex;
-  justify-content: space-between;
   border-radius: 5px;
   align-items: center;
   margin: 0 auto;
   padding: 2rem 7rem;
+}
+
+.ticket-info {
+  margin-left: 300px;
 }
 
 .info {
@@ -411,15 +415,35 @@ p.noti-text span {
   align-items: center;
 }
 
-.info h3{
+.info h3 {
   margin-right: 10px;
 }
 
-.item{
+.item {
   display: flex;
   align-items: center;
 }
 
-.item h3{
+.item h3 {
   margin-right: 10px;
+}
+
+.ticket-confirm {
+  background-color: #97c83e;
+  color: white;
+  padding: 20px 20px;
+  width: 200px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  font-size: large;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.ticket-confirm:hover {
+  background-color: white;
+  color: #97c83e;
+  transition: all 0.3s ease-in-out;
 }

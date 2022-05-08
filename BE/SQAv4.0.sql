@@ -21,7 +21,7 @@ insert into user(userName, userPassword, roleId, userAge, userEmail, userAddress
 	('quandd', '1234', 2, 31, 'quandd@gmail.com', 'Hanoi', '0917477321'), 
 	('anonymous', 'hacker', 2, 33, 'hackeverything@gmail.com', 'russia', '0123456789'), 
 	('noname', 'nopass', 1, 24, 'nothing@gmail.com', 'Hungyen', '0985647123'),
-	('user', 'password', 2, 29, 'user@gamil.com', 'Thaibinh', '0223012431');
+	('user', 'password', 2, 29, 'user@gmail.com', 'Thaibinh', '0223012431');
 
 insert into seatType(seatTypeName, seatTypeAmount, price) values ('normal', '80', '100000'), ('vip', '20', '120000');
 

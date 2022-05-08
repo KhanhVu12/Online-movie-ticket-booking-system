@@ -1,8 +1,7 @@
 from flask import Flask, jsonify, request, make_response
 from flask_mysqldb import MySQL
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
 import re
-import logging
 
 app = Flask(__name__)
 app.config['CORS_HEADERS'] = 'Access-Control-Allow-Origin'
@@ -34,15 +33,17 @@ def login():
 # check if user.roleId == 1
     if user is not None:
         if user[3]==1:
-            return {"admin":{
+            return {
                 "userId": user[0],
+                "userName": user[1],
                 "role": "admin"
-            }}
+            }
         else:
-            return {"user": {
+            return {
                 "userId": user[0],
+                "userName": user[1],
                 "role": "user"    
-            }}
+            }
     else:
         mysql.connection.commit()
         cur.close()
@@ -324,32 +325,38 @@ def generateBill():
     cur = mysql.connection.cursor()
     form = request.form
     userId = form['userId']
-    seatName = form['seatName']
-    seatTypeId = form['seatTypeId']
+    # seatName = form['seatName']
+    # seatTypeId = form['seatTypeId']
     showTimeId = form['showTimeId']
-    foodId = form['foodId']
-    amount = form['amount']
+    seats=form['seats']
+    # foodId = form['foodId']
+    # amount = form['amount']
+    foods=form['foods']
     foodTotal = 0
     ticketTotal = 0
-    for i in range(len(foodId)):
-        fId = foodId[i]
-        fAmount = amount[i]
+    for i in range(len(foods)):
+        # fId = foodId[i]
+        # fAmount = amount[i]
+        fId= foods[i]['id']
+        fAmount = foods[i]['amount']
         cur.execute("INSERT INTO foodOrder (foodId, userId, amount) VALUES (%s, %s, %s)", (fId, userId, fAmount))
         cur.execute("SELECT foodPrice FROM foodOrder JOIN food ON  foodOrder.foodId = food.foodId ORDER BY foodOrder.foodId DESC LIMIT 1")
         foodPrice = cur.fetchone()
         foodTotal += foodPrice[0]
-    for i in range(len(seatTypeId)):
-        stId = showTimeId[i]
+    for i in range(len(seats)):
+        # stId = showTimeId[i]
+        sName = seats[i]['name']
+        sTypeId = seats[i]['typeId']
         # insert the bookedSeat
-        cur.execute("INSERT INTO bookedSeat(seatName, seatTypeId, showTimeId) VALUES (%s, %s, %s)", (seatName, seatTypeId, showTimeId))
+        cur.execute("INSERT INTO bookedSeat(seatName, seatTypeId, showTimeId) VALUES (%s, %s, %s)", (sName, sTypeId, showTimeId))
         # return the id of the last bookedSeat
         cur.execute("SELECT count(*) FROM bookedSeat")
         sId = cur.fetchone()
         print(sId[0])
         # insert the purchased ticket
-        cur.execute("INSERT INTO ticket VALUES (%s, %s, %s)", (userId, sId[0], stId))
+        cur.execute("INSERT INTO ticket VALUES (%s, %s, %s)", (userId, sId[0], showTimeId))
         # count the price of each ticket
-        cur.execute("SELECT price FROM ticket JOIN bookedSeat ON  ticket.seatId = bookedSeat.seatId JOIN seatType ON bookedSeat.seatTypeId= seatType.seatTypeId WHERE userId = %s and ticket.seatId = %s and ticket.showTimeId = %s", (userId, sId, stId))
+        cur.execute("SELECT price FROM ticket JOIN bookedSeat ON  ticket.seatId = bookedSeat.seatId JOIN seatType ON bookedSeat.seatTypeId= seatType.seatTypeId WHERE userId = %s and ticket.seatId = %s and ticket.showTimeId = %s", (userId, sId, showTimeId))
         ticketPrice = cur.fetchone()
         ticketTotal += ticketPrice[0]
     totalPrice = foodTotal + ticketTotal

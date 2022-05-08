@@ -45,7 +45,9 @@
       </div>
 
       <div class="authentication">
-        <button class="btn-logout">Đăng Xuất</button>
+        <button class="btn-login" onclick="handleLogout()" class="btn-logout">
+          Đăng Xuất
+        </button>
       </div>
     </nav>
 
@@ -53,76 +55,76 @@
 
     <div class="sidebar">
       <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered">          
-          <img src="images/Logo/avatar.png" class="img-circle" width="80"> 
-          </p>
-         <h4 class="centered">Sam Sam</h4>
+        <p class="centered">
+          <img src="images/Logo/avatar.png" class="img-circle" width="80" />
+        </p>
+        <h4 class="centered">Sam Sam</h4>
 
         <li class="mt">
-            <a class="active" href="indexAdmin.html">
-                <i class="fa fa-dashboard"></i>
-                <span>Dashboard</span>
-            </a>
+          <a class="active" href="indexAdmin.html">
+            <i class="fa fa-dashboard"></i>
+            <span>Dashboard</span>
+          </a>
         </li>
         <li class="sub-menu">
-            <a href="movielist.html">
-                <i class="fa fa-film"></i>
-                <span>Phim</span>
-            </a>
-        </li>
-        
-        <li class="sub-menu">
-            <a href="showtiming.html">
-                <i class="fa fa-clock-o"></i>
-                <span>Thời Gian Chiếu</span>
-            </a>
+          <a href="movielist.html">
+            <i class="fa fa-film"></i>
+            <span>Phim</span>
+          </a>
         </li>
 
         <li class="sub-menu">
-            <a href="manageuser.html">
-                <i class="fa fa-address-book-o"></i>
-                <span>Quản Lí Tài Khoản</span>
-            </a>
+          <a href="showtiming.html">
+            <i class="fa fa-clock-o"></i>
+            <span>Thời Gian Chiếu</span>
+          </a>
+        </li>
+
+        <li class="sub-menu">
+          <a href="manageuser.html">
+            <i class="fa fa-address-book-o"></i>
+            <span>Quản Lí Tài Khoản</span>
+          </a>
         </li>
 
         <li class="sub-menu">
           <a href="salereport.html">
-              <i class="fa fa-ticket"></i>
-              <span>Báo Cáo Doanh Thu </span>
+            <i class="fa fa-ticket"></i>
+            <span>Báo Cáo Doanh Thu </span>
           </a>
-      </li>
+        </li>
       </ul>
     </div>
-    
+
     <!--dashboard-->
 
     <div class="container">
       <div class="signup-contain">
-
         <h3 class="signup">
-          <i class="fa fa-angle-right" aria-hidden="true"> DASHBOARD</i></h3>
-      
+          <i class="fa fa-angle-right" aria-hidden="true"> DASHBOARD</i>
+        </h3>
+
         <div class="cards">
           <div class="card-single1">
             <div>
               <a href="movielist.html">
-              <h1>Phim</h1>
-            </a>
+                <h1>Phim</h1>
+              </a>
             </div>
           </div>
 
           <div class="card-single2">
             <div>
               <a href="manageuser.html">
-              <h1>Khách Hàng</h1>
-            </a>
+                <h1>Khách Hàng</h1>
+              </a>
             </div>
           </div>
 
           <div class="card-single4">
             <div>
               <a href="salereport.html">
-              <h1>Báo cáo doanh thu</h1>
+                <h1>Báo cáo doanh thu</h1>
               </a>
             </div>
           </div>
@@ -130,20 +132,15 @@
           <div class="card-single5">
             <div>
               <a href="showtiming.html">
-              <h1>Thời Gian Chiếu</h1>
-            </a>
+                <h1>Thời Gian Chiếu</h1>
+              </a>
             </div>
           </div>
         </div>
-
-          
-        </div>
-        
       </div>
+    </div>
 
-
-
+    <script src="scripts/auth.js"></script>
     <script src="scripts/btnMenu.js"></script>
-    
   </body>
 </html>

@@ -216,6 +216,11 @@ body {
     text-transform: bold;
 }
 
+.login-form .error {
+    color: red;
+    margin-top: -10px;
+}
+
 .login-form .login{
     width: 100%;
 }

@@ -18,16 +18,14 @@ const handleSelectSeat = (e) => {
   if (e.currentTarget.className.includes("occupied")) return;
   const isSelected = e.currentTarget.className.includes("selected");
   const isSeatVip = e.currentTarget.className.includes("vip");
+  const ticketPrice = isSeatVip ? +SeatPrice.VIP : +SeatPrice.NORMAL;
 
   if (isSelected) {
-    total.innerHTML =
-      +total.textContent -
-      (e.currentTarget.className.includes("vip")
-        ? +SeatPrice.VIP
-        : +SeatPrice.NORMAL);
+    submitData.total -= ticketPrice;
+    total.innerHTML = +total.textContent - ticketPrice;
   } else {
-    total.innerHTML =
-      +total.textContent + (isSeatVip ? +SeatPrice.VIP : +SeatPrice.NORMAL);
+    submitData.total += ticketPrice;
+    total.innerHTML = +total.textContent + ticketPrice;
   }
 
   if (
@@ -40,7 +38,6 @@ const handleSelectSeat = (e) => {
   ticketCount.textContent = seatContainer.querySelectorAll(".selected").length;
 };
 
-
 seats.forEach((element) => {
-  element.addEventListener("click", handleSelectSeat)
-})
+  element.addEventListener("click", handleSelectSeat);
+});
