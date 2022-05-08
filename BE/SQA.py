@@ -10,7 +10,7 @@ cors = CORS(app)
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = '123456789'
+app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'sqaProject'
 
 mysql = MySQL(app)
@@ -28,15 +28,21 @@ def login():
     email = form['email']
     pw = form['password']
     cur = mysql.connection.cursor()
-    print(pw)
     cur.execute("SELECT * FROM user WHERE BINARY userEmail = %s and BINARY userPassword = %s", (email, pw))
     user = cur.fetchone()
+    print(user)
 # check if user.roleId == 1
     if user is not None:
         if user[3]==1:
-            return jsonify({"admin":user})
+            return {"admin":{
+                "userId": user[0],
+                "role": "admin"
+            }}
         else:
-            return jsonify({"user":user})
+            return {"user": {
+                "userId": user[0],
+                "role": "user"    
+            }}
     else:
         mysql.connection.commit()
         cur.close()
