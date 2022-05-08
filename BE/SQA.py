@@ -158,7 +158,8 @@ def addMovie():
 #edit movie
 @app.route('/movies/edit', methods=['PUT'])
 def editMovie():
-    form = request.form
+    form = request.json
+    # form = movie['movie']
     movieId = form['movieId']
     title = form['title']
     genre = form['genre']
