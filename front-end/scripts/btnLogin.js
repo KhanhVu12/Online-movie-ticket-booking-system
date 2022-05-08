@@ -3,16 +3,14 @@ const loginForm = document.querySelector(".login-form");
 let loginOpen = false;
 const login = document.querySelector(".login");
 
-login.addEventListener("click", () => {
-  fetch(`${url}/login`, {
+login.addEventListener("click", async () => {
+  const res = await fetch(`${url}/login`, {
     method: "POST",
-    mode: "no-cors",
-    body: new FormData(
-      document.getElementById("form-login")
-    ),
+    body: new FormData(document.getElementById("form-login")),
   });
-  console.log("asdmasdm");
-})
+  const user = await res.json();
+  localStorage.setItem("user", user);
+});
 
 btnLogin.addEventListener("click", () => {
   if (!loginOpen) {

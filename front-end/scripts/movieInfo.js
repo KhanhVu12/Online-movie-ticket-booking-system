@@ -6,12 +6,11 @@ const confirmBtn = document.querySelector(".confirm");
 const movieId = localStorage.getItem("movieId");
 const user = JSON.parse(localStorage.getItem("user"));
 const calenderDate = document.querySelectorAll(".calender-date");
-const showTime = document.querySelectorAll(".show-time")
+const showTime = document.querySelectorAll(".show-time");
 const url = "http://localhost:5000";
-let showTimeId = 1;
 
 let submitData = {
-  //   userid: user.id,
+  userId: JSON.parse(localStorage.getItem("user")).userId,
   //   showtimeid: null,
   foods: [
     // {
@@ -19,6 +18,7 @@ let submitData = {
     //   amount: 0,
     // },
   ],
+  showTimeId: null,
   seats: [
     // {
     //   id: null,
@@ -31,8 +31,8 @@ let submitData = {
 
 calenderDate.forEach((item) => {
   item.addEventListener("click", (e) => {
-     calenderDate.forEach((item) => item.classList.remove("active"));
-     e.currentTarget.classList.add("active");
+    calenderDate.forEach((item) => item.classList.remove("active"));
+    e.currentTarget.classList.add("active");
   });
 });
 
@@ -40,11 +40,9 @@ showTime.forEach((item) => {
   item.addEventListener("click", (e) => {
     showTime.forEach((item) => item.classList.remove("active"));
     e.currentTarget.classList.add("active");
-    showTimeId = item.id;
+    submitData.showTimeId = e.currentTarget.id;
   });
 });
-
-console.log(showTimeId)
 
 const getFoods = () => {
   fetch(`${url}/food`)
@@ -103,7 +101,12 @@ const getMovies = (url) => {
 };
 
 const nextToFoodSelect = () => {
-  const selectingTickets = document.querySelectorAll(".seat-container .selected");
+  const selectingTickets = document.querySelectorAll(
+    ".seat-container .selected"
+  );
+  const selectingDates = document.querySelectorAll(".calender-date");
+  const selectingTimes = document.querySelectorAll(".show-time");
+
   selectingTickets.forEach((item) => {
     submitData.seats.push({
       name: item.id,
@@ -118,24 +121,28 @@ window.onload = async () => {
   await getBookedSeats();
 };
 
-const getBookedSeats = async () =>{
+const getBookedSeats = async () => {
   const promise = await fetch(`${url}/ticket/${showTimeId}`);
-  const res = await promise.json()
-    console.log(res.tickets)
-} 
+  const res = await promise.json();
+  const resBookedSeats = res.tickets;
+  const allSeats = document.querySelectorAll(".seat");
+  allSeats.forEach((seat) => {
+    if (resBookedSeats.find((ticket) => ticket[1] == seat.id))
+      seat.classList.add("occupied");
+  });
+};
 
 confirmBtn.addEventListener("click", () => {
   nextToFoodSelect();
   renderFoodList();
-  console.log(submitData);
   window.scrollTo(0, 1050);
 });
 
 const renderFoodList = () => {
   bookingCenter.innerHTML = `
   <div class="food-order">
- <h3>Chọn Đồ Ăn</h3>
- <div class="food-grid">
+  <h3>Chọn Đồ Ăn</h3>
+  <div class="food-grid">
    ${foods
      .map(
        (food) =>
@@ -144,11 +151,11 @@ const renderFoodList = () => {
                     <img src=${food[2]} alt="">
                 </div>
                 <div class="food-category">${food[1]}</div>
-                <div class="price">${food[3]}</div>
+                <div class="price-${food[0]}">${food[3]}</div>
                 <div class="food-footer">
-                    <span class="minus-btn" onclick="decreaseClick(${food[0]})"><i class="fa-solid fa-minus"></i></span>
+                    <span class="minus-btn" onclick="decreaseClick(${food[0]},${food[3]})"><i class="fa-solid fa-minus"></i></span>
                     <span class="counter-label-${food[0]}">0</span>
-                    <span class="plus-btn" onclick="incrementClick(${food[0]})"><i class="fa-solid fa-plus"></i></span>
+                    <span class="plus-btn" onclick="incrementClick(${food[0]},${food[3]})"><i class="fa-solid fa-plus"></i></span>
                 </div>
             </div>`
      )
@@ -203,16 +210,42 @@ const renderTicketInfo = () => {
             </div>
         </div>
   `;
-}
+};
 
-function decreaseClick(id) {
-  const label = document.querySelector(`.counter-label-${id}`);
+function decreaseClick(id, price) {
+  let priceLable = document.querySelector(`.price-${id}`);
+  let label = document.querySelector(`.counter-label-${id}`);
   let value = label.textContent;
   if (value == 0) return;
+  let total = (+value - 1) * price;
   label.innerHTML = --value;
+  priceLable.textContent = value == 1 ? price : total;
+
+  //Pop food from submitData
+  const currentFood = submitData.foods.find((food) => food.id == id);
+  const filterFoods = submitData.foods.filter((food) => food.id != id);
+  if (currentFood) {
+    if (currentFood.amount === 1) {
+      submitData.foods = filterFoods;
+      return;
+    }
+    filterFoods.push({ id: id, amount: --currentFood.amount });
+  }
 }
 
-function incrementClick(id) {
-  const label = document.querySelector(`.counter-label-${id}`);
-  label.innerHTML = ++label.textContent;
+function incrementClick(id, price) {
+  let priceLable = document.querySelector(`.price-${id}`);
+  let label = document.querySelector(`.counter-label-${id}`);
+  let value = label.textContent;
+  let total = (+value + 1) * price;
+  label.innerHTML = ++value;
+  priceLable.textContent = total;
+
+  //Add food to submitData
+  const currentFood = submitData.foods.find((food) => food.id == id);
+  if (currentFood) {
+    submitData.foods
+      .filter((food) => food.id != id)
+      .push({ id: id, amount: ++currentFood.amount });
+  } else submitData.foods.push({ id: id, amount: 1 });
 }
